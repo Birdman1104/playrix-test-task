@@ -1,12 +1,20 @@
+import * as PIXI from "pixi.js";
+
 export const lp = (l, p) => {
     if (window.matchMedia("(orientation: portrait)").matches) {
-        // you're in PORTRAIT mode
+        // PORTRAIT mode
         return p;
     }
     if (window.matchMedia("(orientation: landscape)").matches) {
-        // you're in LANDSCAPE mode
+        // LANDSCAPE mode
         return l;
     }
+};
+
+export const getGameBounds = () => {
+    const { clientWidth: width, clientHeight: height } = document.body;
+
+    return new PIXI.Rectangle(0, 0, width, height);
 };
 
 export const fitDimension = (dim, minRatio, maxRatio) => {
@@ -29,3 +37,13 @@ export const fitDimension = (dim, minRatio, maxRatio) => {
 
     return dim;
 };
+
+export function isSquareLikeScreen() {
+    const { width, height } = getGameBounds();
+    return Math.min(width, height) / Math.max(width, height) > 0.7;
+}
+
+export function isNarrowScreen() {
+    const { width, height } = getGameBounds();
+    return Math.min(width, height) / Math.max(width, height) < 0.5;
+}

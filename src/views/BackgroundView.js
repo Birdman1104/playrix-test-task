@@ -6,7 +6,7 @@ export class BackgroundView extends PixiGrid {
     constructor() {
         super();
 
-        this.build();
+        this.#build();
     }
 
     getGridConfig() {
@@ -17,13 +17,13 @@ export class BackgroundView extends PixiGrid {
         super.rebuild(this.getGridConfig());
     }
 
-    build() {
+    #build() {
         const gr = getGr(0x123456);
         this.setChild("bg", (this._bg = gr));
     }
 }
 
-function getGr(color = 0x919191, alpha = 1) {
+export function getGr(color = 0x919191, alpha = 1) {
     const gr = new PIXI.Graphics();
     gr.interactive = true;
     gr.beginFill(color, alpha);

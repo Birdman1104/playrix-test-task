@@ -24,7 +24,6 @@ export class MainGame extends PIXI.Application {
 
         if (process.env.NODE_ENV !== "production") {
             const stats = new PixiStatsPlugin(this);
-            console.warn(stats);
             document.body.appendChild(stats.stats.dom);
             stats.stats.dom.childNodes.forEach((e) => {
                 e.style.width = "250px";

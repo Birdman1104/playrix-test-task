@@ -3,9 +3,18 @@ import { PixiGrid } from "@armathai/pixi-grid";
 import { getMainViewGridConfig } from "../configs/grid-configs/MainViewGridConfig";
 import { MainGameEvents } from "../events/MainEvents";
 import { BackgroundView } from "./BackgroundView";
+import { CTAView } from "./CTAView";
+import { ForegroundView } from "./ForegroundView";
+import { GameView } from "./GameView";
+import { UIView } from "./UIView";
 
 export class MainView extends PixiGrid {
     #bgView;
+    #gameView;
+    #uiView;
+    #foregroundView;
+    #ctaView;
+
     constructor() {
         super();
 
@@ -27,12 +36,12 @@ export class MainView extends PixiGrid {
 
     _build() {
         this.setChild("background", (this.#bgView = new BackgroundView()));
+        this.setChild("game", (this.#gameView = new GameView()));
+        this.setChild("game", (this.#uiView = new UIView()));
+        this.setChild("game", (this.#foregroundView = new ForegroundView()));
+        this.setChild("game", (this.#ctaView = new CTAView()));
 
-        this.#bgView.alpha = 0;
-        setTimeout(() => {
-            this.rebuild();
-            this.onResize();
-            this.#bgView.alpha = 1;
-        }, 400);
+        this.rebuild();
+        this.onResize();
     }
 }
