@@ -19,7 +19,7 @@ export class MainView extends PixiGrid {
         super();
 
         lego.event.on(MainGameEvents.Resize, this.onResize, this);
-        this._build();
+        this.#build();
     }
 
     getGridConfig() {
@@ -34,7 +34,7 @@ export class MainView extends PixiGrid {
         this.rebuild();
     }
 
-    _build() {
+    #build() {
         this.setChild("background", (this.#bgView = new BackgroundView()));
         this.setChild("game", (this.#gameView = new GameView()));
         this.setChild("game", (this.#uiView = new UIView()));

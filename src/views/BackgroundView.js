@@ -19,7 +19,7 @@ export class BackgroundView extends PixiGrid {
 
     #build() {
         const gr = getGr(0x123456);
-        this.setChild("bg", (this._bg = gr));
+        this.setChild("bg", gr);
     }
 }
 
