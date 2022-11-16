@@ -1,4 +1,5 @@
 import { lego, legoLogger } from "@armathai/lego";
+import { PixiStatsPlugin } from "@armathai/pixi-stats";
 import * as PIXI from "pixi.js";
 import { ScreenSizeConfig } from "./configs/ScreenSizeConfig";
 import { MainGameEvents } from "./events/MainEvents";
@@ -20,6 +21,19 @@ export class MainGame extends PIXI.Application {
 
     init() {
         document.body.appendChild(this.view);
+
+        if (process.env.NODE_ENV !== "production") {
+            const stats = new PixiStatsPlugin(this);
+            console.warn(stats);
+            document.body.appendChild(stats.stats.dom);
+            stats.stats.dom.childNodes.forEach((e) => {
+                e.style.width = "250px";
+                e.style.height = "150px";
+            });
+            this.ticker.add(() => {
+                stats.stats.update();
+            });
+        }
         this.#initLego();
         this.#loadAssets();
     }

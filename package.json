@@ -17,13 +17,13 @@
         "pixi.js": "^6.5.0"
     },
     "devDependencies": {
+        "@armathai/pixi-stats": "^3.1.0",
         "babel-loader": "^9.1.0",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.1",
         "html-webpack-plugin": "^5.5.0",
         "prettier": "^2.7.1",
-        "stats.js": "^0.17.0",
         "style-loader": "^3.3.1",
         "webpack": "^5.75.0",
         "webpack-cli": "^4.10.0",
