@@ -3,8 +3,8 @@ import { PixiStatsPlugin } from "@armathai/pixi-stats";
 import * as PIXI from "pixi.js";
 import { ScreenSizeConfig } from "./configs/ScreenSizeConfig";
 import { MainGameEvents } from "./events/MainEvents";
-import { MainView } from "./MainView";
 import { fitDimension } from "./Utils";
+import { MainView } from "./views/MainView";
 
 export class MainGame extends PIXI.Application {
     #mainView;

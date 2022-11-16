@@ -1,9 +1,11 @@
 import { lego } from "@armathai/lego";
 import { PixiGrid } from "@armathai/pixi-grid";
-import { getMainViewGridConfig } from "./configs/grid-configs/MainViewGridConfig";
-import { MainGameEvents } from "./events/MainEvents";
+import { getMainViewGridConfig } from "../configs/grid-configs/MainViewGridConfig";
+import { MainGameEvents } from "../events/MainEvents";
+import { BackgroundView } from "./BackgroundView";
 
 export class MainView extends PixiGrid {
+    #bgView;
     constructor() {
         super();
 
@@ -24,6 +26,13 @@ export class MainView extends PixiGrid {
     }
 
     _build() {
-        console.warn("build main view");
+        this.setChild("background", (this.#bgView = new BackgroundView()));
+
+        this.#bgView.alpha = 0;
+        setTimeout(() => {
+            this.rebuild();
+            this.onResize();
+            this.#bgView.alpha = 1;
+        }, 400);
     }
 }
