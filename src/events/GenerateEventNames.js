@@ -41,7 +41,6 @@ async function getSetters(file) {
         const prop = boo.slice(firstIndex, secondIndex);
         setters.push(prop);
     }
-    console.warn(setters);
     return setters;
 }
 
@@ -62,10 +61,10 @@ async function start() {
     let events = "";
     for (const model of models) {
         const props = await getSetters(join(modelsPath, model));
+        if (props.length === 0) continue;
         const modelName = model.slice(0, model.indexOf("."));
         events += generateEventNames(modelName, props);
     }
-    console.warn(events);
 
     const file = join(__dirname, "ModelEvents.js");
     await fs.writeFile(file, events);
