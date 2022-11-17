@@ -1,16 +1,16 @@
 import { lego } from "@armathai/lego";
 import { WindowEvent } from "./events/MainEvents";
-import { MainGame } from "./MainGame";
+import { PixiGame } from "./PixiGame";
 
-class MainApp {
-    #mainGame;
+class PixiApp {
+    #pixiGame;
     constructor() {
         //
     }
 
     init() {
-        this.#mainGame = new MainGame();
-        this.#mainGame.init();
+        this.#pixiGame = new PixiGame();
+        this.#pixiGame.init();
     }
 
     onFocusChange(value) {
@@ -21,8 +21,10 @@ class MainApp {
         lego.event.emit(WindowEvent.Resize);
         const { clientWidth: width, clientHeight: height } = document.body;
         if (width === 0 || height === 0) return;
-        this.#mainGame.onResize({ width, height });
+        this.#pixiGame.onResize({ width, height });
     }
 }
 
-export const PixiGame = new MainApp();
+const pixiApp = new PixiApp();
+
+export default pixiApp;

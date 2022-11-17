@@ -1,11 +1,11 @@
-import { PixiGame } from "./MainApp";
+import pixiApp from "./PixiApp";
 
-window.pixiGame = PixiGame;
+window.pixiApp = pixiApp;
 window.addEventListener("load", () => {
-  pixiGame.init();
+    pixiApp.init();
 });
 
-window.addEventListener("resize", () => pixiGame.onResize());
-window.addEventListener("orientationchange", () => pixiGame.onResize());
-window.addEventListener("focus", () => pixiGame.onFocusChange(true));
-window.addEventListener("blur", () => pixiGame.onFocusChange(false));
+window.addEventListener("resize", () => pixiApp.onResize());
+window.addEventListener("orientationchange", () => pixiApp.onResize());
+window.addEventListener("focus", () => pixiApp.onFocusChange(true));
+window.addEventListener("blur", () => pixiApp.onFocusChange(false));

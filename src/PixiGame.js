@@ -1,12 +1,13 @@
 import { lego, legoLogger } from "@armathai/lego";
 import { PixiStatsPlugin } from "@armathai/pixi-stats";
 import * as PIXI from "pixi.js";
+import { mapCommands } from "./commands/EventCommandPairs";
 import { ScreenSizeConfig } from "./configs/ScreenSizeConfig";
 import { MainGameEvents } from "./events/MainEvents";
 import { fitDimension } from "./Utils";
 import { MainView } from "./views/MainView";
 
-export class MainGame extends PIXI.Application {
+export class PixiGame extends PIXI.Application {
     #mainView;
     constructor() {
         super({
@@ -65,8 +66,10 @@ export class MainGame extends PIXI.Application {
     }
 
     #onLoadComplete() {
+        lego.command.execute(mapCommands);
         this.#mainView = new MainView();
         this.stage.addChild(this.#mainView);
+        lego.event.emit(MainGameEvents.MainViewReady);
     }
 
     #onLoadProgress(loader, resource) {
