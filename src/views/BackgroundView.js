@@ -1,6 +1,8 @@
 import { PixiGrid } from "@armathai/pixi-grid";
 import * as PIXI from "pixi.js";
 import { getBackgroundGridConfig } from "../configs/grid-configs/BackgroundGridConfig";
+import { getBkgConfig } from "../configs/SpriteConfigs";
+import { makeSprite } from "../Utils";
 
 export class BackgroundView extends PixiGrid {
     constructor() {
@@ -18,8 +20,9 @@ export class BackgroundView extends PixiGrid {
     }
 
     #build() {
-        const gr = getGr(0x123456);
-        this.setChild("bg", gr);
+        const bkg = makeSprite(getBkgConfig());
+        // const gr = getGr(0x123456);
+        this.setChild("bg", bkg);
     }
 }
 

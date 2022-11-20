@@ -15,7 +15,7 @@ const getBackgroundViewGridLandscapeConfig = () => {
             {
                 name: "bg",
                 bounds: { x: 0, y: 0, width: 1, height: 1 },
-                scale: CellScale.fill,
+                scale: CellScale.envelop,
             },
         ],
     };

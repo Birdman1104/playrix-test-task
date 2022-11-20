@@ -47,3 +47,23 @@ export function isNarrowScreen() {
     const { width, height } = getGameBounds();
     return Math.min(width, height) / Math.max(width, height) < 0.5;
 }
+
+export const makeSprite = (config) => {
+    const {
+        texture,
+        tint = 0,
+        position = new PIXI.Point(0, 0),
+        scale = new PIXI.Point(1, 1),
+        anchor = new PIXI.Point(0.5, 0.5),
+    } = config;
+
+    const sprite = PIXI.Sprite.from(texture);
+
+    sprite.scale.copyFrom(scale);
+    sprite.anchor.copyFrom(anchor);
+    sprite.position.copyFrom(position);
+
+    if (tint) sprite.tint = tint;
+
+    return sprite;
+};

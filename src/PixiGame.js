@@ -23,17 +23,7 @@ export class PixiGame extends PIXI.Application {
     init() {
         document.body.appendChild(this.view);
 
-        if (process.env.NODE_ENV !== "production") {
-            const stats = new PixiStatsPlugin(this);
-            document.body.appendChild(stats.stats.dom);
-            stats.stats.dom.childNodes.forEach((e) => {
-                e.style.width = "250px";
-                e.style.height = "150px";
-            });
-            this.ticker.add(() => {
-                stats.stats.update();
-            });
-        }
+        // this.#initStats();
         this.#initLego();
         this.#loadAssets();
     }
@@ -56,6 +46,7 @@ export class PixiGame extends PIXI.Application {
         this.loader.add([
             { name: "arrow", url: "./assets/arrow.png" },
             { name: "ball", url: "./assets/bball.png" },
+            { name: "bkg", url: "./assets/bkg_1080.png" },
         ]);
 
         this.loader.onComplete.add(this.#onLoadComplete, this);
@@ -88,5 +79,19 @@ export class PixiGame extends PIXI.Application {
 
     #resizeRenderer(width, height) {
         this.renderer.resize(width, height);
+    }
+
+    #initStats() {
+        if (process.env.NODE_ENV !== "production") {
+            const stats = new PixiStatsPlugin(this);
+            document.body.appendChild(stats.stats.dom);
+            stats.stats.dom.childNodes.forEach((e) => {
+                e.style.width = "250px";
+                e.style.height = "150px";
+            });
+            this.ticker.add(() => {
+                stats.stats.update();
+            });
+        }
     }
 }

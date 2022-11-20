@@ -1,13 +1,13 @@
 export const ScreenSizeConfig = Object.freeze({
-  size: {
-    app: {
-      landscape: { width: 1200, height: 650 },
-      portrait: { width: 650, height: 1200 },
+    size: {
+        app: {
+            landscape: { width: 960, height: 640 },
+            portrait: { width: 640, height: 960 },
+        },
+        game: {
+            landscape: { width: 960, height: 640 },
+            portrait: { width: 640, height: 960 },
+        },
+        ratio: { min: 0.1, max: 1 },
     },
-    game: {
-      landscape: { width: 1200, height: 650 },
-      portrait: { width: 650, height: 1200 },
-    },
-    ratio: { min: 0.1, max: 1 },
-  },
 });
