@@ -2,7 +2,8 @@ const fs = require("fs").promises;
 const { join } = require("path");
 const { exec } = require("child_process");
 
-const modelsPath = join(__dirname, "../models");
+const modelsFolder = join(__dirname, "../src/models");
+const eventsFolder = join(__dirname, "../src/events");
 
 async function runPrettierOn(file) {
     await exec(`prettier --write ${file}`);
@@ -57,18 +58,17 @@ function generateEventNames(modelName, props) {
 }
 
 async function start() {
-    const models = await getFolderContent(modelsPath);
+    const models = await getFolderContent(modelsFolder);
     let events = "";
     for (const model of models) {
-        const props = await getSetters(join(modelsPath, model));
+        const props = await getSetters(join(modelsFolder, model));
         if (props.length === 0) continue;
         const modelName = model.slice(0, model.indexOf("."));
         events += generateEventNames(modelName, props);
     }
 
-    const file = join(__dirname, "ModelEvents.js");
+    const file = join(eventsFolder, "ModelEvents.js");
     await fs.writeFile(file, events);
     await runPrettierOn(file);
 }
-
 start();
