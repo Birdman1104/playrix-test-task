@@ -1,8 +1,10 @@
+import { BoardModel } from "./BoardModel";
 import { ObservableModel } from "./ObservableModel";
 import { TutorialModel } from "./TutorialModel";
 
 export class GameModel extends ObservableModel {
     _tutorial;
+    _board;
 
     constructor() {
         super("GameModel");
@@ -17,8 +19,21 @@ export class GameModel extends ObservableModel {
         this._tutorial = value;
     }
 
+    get board() {
+        return this._board;
+    }
+
+    set board(value) {
+        this._board = value;
+    }
+
     init() {
-        //
+        this.initBoard();
+    }
+
+    initBoard() {
+        this._board = new BoardModel();
+        this._board.init();
     }
 
     initTutorial() {

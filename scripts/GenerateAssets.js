@@ -107,6 +107,7 @@ async function emptySpriteSheetFolder() {
 
 async function generateAtlases() {
     const { path } = paths.images;
+    let imageFiles;
     try {
         const folders = await fs.readdir(path, "utf8");
         const spriteSheetNames = [];
@@ -116,14 +117,18 @@ async function generateAtlases() {
             if (!stat.isDirectory()) continue;
             const folderContent = await getFolderContent(join(path, folder), true, folder);
             if (folderContent.length === 0) continue;
-            const imageFiles = folderContent.filter((f) => isImage(f));
+            imageFiles = folderContent.filter((f) => isImage(f));
             spriteSheetNames.push(folder);
             await generateSpriteSheet(imageFiles, folder);
         }
         const data = `export const spriteSheets = ${JSON.stringify(spriteSheetNames)}`;
         const file = join(assetsPath, "assets-names/spriteSheets.js");
+        const imgData = `export const images = ${JSON.stringify(imageFiles)}`;
+        const imgFile = join(assetsPath, "assets-names/images.js");
         await fs.writeFile(file, data);
+        await fs.writeFile(imgFile, imgData);
         await runPrettierOn(file);
+        await runPrettierOn(imgFile);
     } catch (e) {
         console.log(e.message);
     }

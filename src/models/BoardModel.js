@@ -1,10 +1,11 @@
 import { BoardState } from "../configs/Constants";
+import { StairType } from "../configs/StairsOptionsConfig";
 import { ObservableModel } from "./ObservableModel";
 import { StairsModel } from "./StairsModel";
 
 export class BoardModel extends ObservableModel {
     _state = BoardState.Unknown;
-    _stairs;
+    _stairs = null;
 
     constructor() {
         super("BoardModel");
@@ -29,6 +30,8 @@ export class BoardModel extends ObservableModel {
 
     init() {
         this._state = BoardState.Game;
+        this._stairs = StairType.Default;
+        console.warn(78);
     }
 
     initStairs() {
