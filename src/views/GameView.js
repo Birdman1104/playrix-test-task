@@ -1,15 +1,14 @@
 import { lego } from "@armathai/lego";
 import { PixiGrid } from "@armathai/pixi-grid";
 import { getGameViewGridConfig } from "../configs/grid-configs/GameViewGridConfig";
-import { getStairImageConfig } from "../configs/SpriteConfigs";
-import { StairType } from "../configs/StairsOptionsConfig";
 import { BoardModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
 import { GameViewEvent } from "../events/ViewEvents";
-import { makeSprite } from "../Utils";
 import { OptionView } from "./OptionView";
+import { StairView } from "./StairView";
 
 export class GameView extends PixiGrid {
     #options = []; // OptionView[]
+    #stair; // StairView
 
     constructor() {
         super();
@@ -47,8 +46,8 @@ export class GameView extends PixiGrid {
     }
 
     #buildDefaultStairs() {
-        this._defaultStair = makeSprite(getStairImageConfig(StairType.Default));
-        this.setChild("stair", this._defaultStair);
+        this.#stair = new StairView();
+        this.setChild("stair", this.#stair);
     }
 
     #onOptionsUpdate(newOptions, oldOptions) {
