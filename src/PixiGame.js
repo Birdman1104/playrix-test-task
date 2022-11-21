@@ -1,6 +1,7 @@
 import { lego, legoLogger } from "@armathai/lego";
 import { PixiStatsPlugin } from "@armathai/pixi-stats";
 import * as PIXI from "pixi.js";
+import { assets } from "./assets/assets-names/assets";
 import { mapCommands } from "./commands/EventCommandPairs";
 import { ScreenSizeConfig } from "./configs/ScreenSizeConfig";
 import { MainGameEvents } from "./events/MainEvents";
@@ -43,11 +44,18 @@ export class PixiGame extends PIXI.Application {
     }
 
     #loadAssets() {
-        this.loader.add([
-            { name: "arrow", url: "./assets/arrow.png" },
-            { name: "ball", url: "./assets/bball.png" },
-            { name: "bkg", url: "./assets/bkg_1080.png" },
-        ]);
+        assets.forEach(({ assetName, url }) => {
+            this.loader.add({ name: assetName, url });
+        });
+        // spriteSheets.forEach(s => {
+        //     const name = :
+        //     this.loader.add({ name: assetName, url });
+        // });
+        // this.loader.add([
+        //     { name: "arrow", url: "./assets/arrow.png" },
+        //     { name: "ball", url: "./assets/bball.png" },
+        //     { name: "bkg", url: "./assets/bkg_1080.png" },
+        // ]);
 
         this.loader.onComplete.add(this.#onLoadComplete, this);
         this.loader.onProgress.add(this.#onLoadProgress, this);
