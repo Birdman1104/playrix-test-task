@@ -43,20 +43,12 @@ let options = {
     tinify: false,
     packer: "MaxRectsPacker",
     packerMethod: "Smart",
-    exporter: "Phaser3",
+    exporter: "Pixi",
     filter: "none",
 };
 
-function getFileNameFromPath(path) {
-    return path.slice(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-}
-
 function getFileNameWithExtension(path) {
     return path.slice(path.lastIndexOf("/") + 1, path.length);
-}
-
-function getFileExtensionFromPath(path) {
-    return path.slice(path.lastIndexOf(".") + 1, path.length);
 }
 
 function isImage(filePath) {
