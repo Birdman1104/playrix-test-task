@@ -20,7 +20,7 @@ async function getFolderContent(folderPath) {
                 await getFilesRecursively(newPath);
             } else {
                 const dir = newPath.split("/");
-                if (dir.indexOf("ObservableModel.js") !== -1) return;
+                if (dir.indexOf("ObservableModel.js") !== -1) continue;
                 const fileDir = dir.slice(dir.indexOf("models") + 1, dir.length);
                 newPath = fileDir.join("/");
                 result.push(newPath);

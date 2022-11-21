@@ -1,41 +1,46 @@
-import { BoardState } from "../configs/Constants";
-import { StairType } from "../configs/StairsOptionsConfig";
+import { StairOptions, StairType } from "../configs/StairsOptionsConfig";
 import { ObservableModel } from "./ObservableModel";
-import { StairsModel } from "./StairsModel";
+import { StairOptionModel } from "./StairOptionModel";
 
 export class BoardModel extends ObservableModel {
-    _state = BoardState.Unknown;
-    _stairs = null;
+    _stairType; // StairType
+    _options; // StairOptionModel[]
 
     constructor() {
         super("BoardModel");
         this.makeObservable();
     }
 
-    get state() {
-        return this._state;
+    get options() {
+        return this._options;
     }
 
-    set state(value) {
-        this._state = value;
+    set options(value) {
+        this._options = value;
     }
 
-    get stairs() {
-        return this._stairs;
+    get stairType() {
+        return this._stairType;
     }
 
-    set stairs(value) {
-        this._stairs = value;
+    set stairType(value) {
+        this._stairType = value;
     }
 
     init() {
-        this._state = BoardState.Game;
-        this._stairs = StairType.Default;
-        console.warn(78);
+        this._stairType = StairType.Default;
+        this._options = [];
+        this.#initOptions();
     }
 
-    initStairs() {
-        this._stairs = new StairsModel();
-        this._stairs.init();
+    setStairType(type) {
+        this._stairType = type;
+        this._options.forEach((o) => {
+            o.selected = type === o.type;
+        });
+    }
+
+    #initOptions() {
+        this._options = StairOptions.map(({ name }) => new StairOptionModel(name));
     }
 }

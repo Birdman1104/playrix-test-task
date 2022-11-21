@@ -2,7 +2,7 @@ import { GameModel } from "./GameModel";
 import { ObservableModel } from "./ObservableModel";
 
 class HeadModel extends ObservableModel {
-    _gameModel;
+    _gameModel; // GameModel;
 
     constructor() {
         super("Head");

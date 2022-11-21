@@ -3,8 +3,8 @@ import { ObservableModel } from "./ObservableModel";
 import { TutorialModel } from "./TutorialModel";
 
 export class GameModel extends ObservableModel {
-    _tutorial;
-    _board;
+    _tutorial; // TutorialModel
+    _board; // BoardModel
 
     constructor() {
         super("GameModel");

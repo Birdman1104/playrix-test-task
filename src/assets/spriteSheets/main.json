@@ -408,7 +408,7 @@
         "y": 0.5
       }
     },
-    "stairs-icons/choice_choose.png": {
+    "stairs-icons/choice_selected.png": {
       "frame": {
         "x": 1478,
         "y": 402,
@@ -432,7 +432,7 @@
         "y": 0.5
       }
     },
-    "stairs-icons/stairs_icon_green.png": {
+    "stairs-icons/stair_green_icon.png": {
       "frame": {
         "x": 1603,
         "y": 402,
@@ -456,7 +456,7 @@
         "y": 0.5
       }
     },
-    "stairs-icons/stairs_icon_brown.png": {
+    "stairs-icons/stair_brown_icon.png": {
       "frame": {
         "x": 1603,
         "y": 490,
@@ -480,7 +480,7 @@
         "y": 0.5
       }
     },
-    "stairs-icons/stairs_icon_black.png": {
+    "stairs-icons/stair_black_icon.png": {
       "frame": {
         "x": 1352,
         "y": 507,
