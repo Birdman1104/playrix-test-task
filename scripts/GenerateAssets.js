@@ -15,9 +15,9 @@ const paths = {
         path: join(assetsPath, "uncompressed"),
         name: "uncompressed",
     },
-    spriteSheets: {
-        path: join(assetsPath, "spriteSheets"),
-        name: "spriteSheets",
+    atlases: {
+        path: join(assetsPath, "atlases"),
+        name: "atlases",
     },
 };
 
@@ -55,7 +55,8 @@ function isImage(filePath) {
     return /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(filePath);
 }
 
-async function generateSpriteSheet(data, name) {
+// TODO rename
+async function generateAtlas(data, name) {
     const assets = await Promise.all(
         data.map(async (key) => {
             const contents = await fs.readFile(join(paths.images.path, name, key));
@@ -66,7 +67,7 @@ async function generateSpriteSheet(data, name) {
     texturePacker(assets, options, async (files, error) => {
         if (error) throw error;
         for (const item of files) {
-            const itemPath = join(assetsPath, `spriteSheets/${item.name}`);
+            const itemPath = join(assetsPath, `atlases/${item.name}`);
             await fs.appendFile(itemPath, item.buffer);
         }
     });
@@ -95,8 +96,8 @@ async function getFolderContent(folderPath, shorterPath = true, shortenFromFolde
     return result;
 }
 
-async function emptySpriteSheetFolder() {
-    const { name, path } = paths.spriteSheets;
+async function emptyAtlasesFolder() {
+    const { name, path } = paths.atlases;
     let files = await getFolderContent(path, true, name);
     if (files.length !== 0) {
         for (const f of files) {
@@ -110,7 +111,7 @@ async function generateAtlases() {
     let imageFiles;
     try {
         const folders = await fs.readdir(path, "utf8");
-        const spriteSheetNames = [];
+        const atlasNames = [];
         for (const folder of folders) {
             const folderPath = join(path, folder);
             const stat = await fs.stat(folderPath);
@@ -118,16 +119,17 @@ async function generateAtlases() {
             const folderContent = await getFolderContent(join(path, folder), true, folder);
             if (folderContent.length === 0) continue;
             imageFiles = folderContent.filter((f) => isImage(f));
-            // spriteSheetNames.push(folder);
-            // await generateSpriteSheet(imageFiles, folder);
+            atlasNames.push(folder);
+            await generateAtlas(imageFiles, folder);
         }
-        // const data = `export const spriteSheets = ${JSON.stringify(spriteSheetNames)}`;
-        // const file = join(assetsPath, "assets-names/spriteSheets.js");
-        const imgData = `export const images = ${JSON.stringify(imageFiles)}`;
-        const imgFile = join(assetsPath, "assets-names/images.js");
+        // TODO cleanup
+        const data = `export const atlases = ${JSON.stringify(atlasNames)}`;
+        const file = join(assetsPath, "assets-names/atlases.js");
+        // const imgData = `export const images = ${JSON.stringify(imageFiles)}`;
+        // const imgFile = join(assetsPath, "assets-names/images.js");
         await fs.writeFile(file, data);
-        await fs.writeFile(imgFile, imgData);
-        // await runPrettierOn(file);
+        // await fs.writeFile(imgFile, imgData);
+        await runPrettierOn(file);
         // await runPrettierOn(imgFile);
     } catch (e) {
         console.log(e.message);
@@ -160,7 +162,7 @@ async function runPrettierOn(file) {
 
 async function start() {
     console.log("removing current sprite sheets");
-    // await emptySpriteSheetFolder();
+    await emptyAtlasesFolder();
     console.log("generating atlases");
     await generateAtlases();
     console.log("generating uncompressed sprites");

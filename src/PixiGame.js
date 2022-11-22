@@ -2,7 +2,6 @@ import { lego, legoLogger } from "@armathai/lego";
 import { PixiStatsPlugin } from "@armathai/pixi-stats";
 import * as PIXI from "pixi.js";
 import { assets } from "./assets/assets-names/assets";
-import { images } from "./assets/assets-names/images";
 import { mapCommands } from "./commands/EventCommandPairs";
 import { ScreenSizeConfig } from "./configs/ScreenSizeConfig";
 import { MainGameEvents } from "./events/MainEvents";
@@ -16,7 +15,8 @@ export class PixiGame extends PIXI.Application {
         super({
             width: window.innerWidth,
             height: window.innerHeight,
-            backgroundColor: 0xc3c3c3,
+            backgroundColor: 0x0,
+            backgroundAlpha: 0,
             powerPreference: "high-performance",
             resolution: 1,
             sharedTicker: true,
@@ -46,12 +46,12 @@ export class PixiGame extends PIXI.Application {
     }
 
     #loadAssets() {
-        // TODO Choose a better logic
         assets.forEach(({ assetName, url }) => {
             this.loader.add({ name: assetName, url });
         });
-        images.forEach((img) => {
-            this.loader.add({ name: img, url: "assets/images/main/" + img });
+        this.loader.add({
+            key: "main",
+            url: "assets/atlases/main.json",
         });
         this.loader.onComplete.add(this.#onLoadComplete, this);
         this.loader.onProgress.add(this.#onLoadProgress, this);
@@ -89,10 +89,12 @@ export class PixiGame extends PIXI.Application {
         if (process.env.NODE_ENV !== "production") {
             const stats = new PixiStatsPlugin(this);
             document.body.appendChild(stats.stats.dom);
-            stats.stats.dom.childNodes.forEach((e) => {
-                e.style.width = "250px";
-                e.style.height = "150px";
-            });
+            stats.stats.dom.style.transform = "scale(3)";
+            stats.stats.dom.style.transformOrigin = "left top";
+            stats.stats.dom.style.top = "0px";
+            stats.stats.dom.style.left = "0px";
+            stats.stats.dom.style.position = "absolute";
+            console.warn(window.devicePixelRatio);
             this.ticker.add(() => {
                 stats.stats.update();
             });
