@@ -1,20 +1,13 @@
 import * as PIXI from "pixi.js";
 
 export const lp = (l, p) => {
-    if (window.matchMedia("(orientation: portrait)").matches) {
-        // PORTRAIT mode
-        return p;
-    }
-    if (window.matchMedia("(orientation: landscape)").matches) {
-        // LANDSCAPE mode
-        return l;
-    }
+    const { clientWidth: w, clientHeight: h } = document.body;
+    return w > h ? l : p;
 };
 
 export const getGameBounds = () => {
-    const { clientWidth: width, clientHeight: height } = document.body;
-
-    return new PIXI.Rectangle(0, 0, width, height);
+    const { clientWidth: w, clientHeight: h } = document.body;
+    return new PIXI.Rectangle(0, 0, w, h);
 };
 
 export const fitDimension = (dim, minRatio, maxRatio) => {

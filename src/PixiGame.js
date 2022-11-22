@@ -10,7 +10,8 @@ import { fitDimension } from "./Utils";
 import { MainView } from "./views/MainView";
 
 export class PixiGame extends PIXI.Application {
-    #mainView;
+    #mainView; // MainView
+
     constructor() {
         super({
             width: window.innerWidth,
@@ -25,7 +26,7 @@ export class PixiGame extends PIXI.Application {
     init() {
         document.body.appendChild(this.view);
 
-        // this.#initStats();
+        this.#initStats();
         this.#initLego();
         this.#loadAssets();
     }
@@ -45,6 +46,7 @@ export class PixiGame extends PIXI.Application {
     }
 
     #loadAssets() {
+        // TODO Choose a better logic
         assets.forEach(({ assetName, url }) => {
             this.loader.add({ name: assetName, url });
         });

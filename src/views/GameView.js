@@ -42,7 +42,7 @@ export class GameView extends PixiGrid {
     }
 
     #updateStairs(newType) {
-        console.warn(newType);
+        this.#stair.updateType(newType);
     }
 
     #buildDefaultStairs() {

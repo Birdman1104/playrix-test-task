@@ -11,6 +11,13 @@ export class StairView extends PIXI.Container {
         this.#build();
     }
 
+    // TODO Choose a better logic
+    updateType(type) {
+        this.#sprite.destroy();
+        this.#sprite = makeSprite(getStairImageConfig(type));
+        this.addChild(this.#sprite);
+    }
+
     #build() {
         this.#sprite = makeSprite(getStairImageConfig(StairType.Default));
         this.addChild(this.#sprite);
