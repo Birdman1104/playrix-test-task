@@ -1,8 +1,13 @@
 import { PixiGrid } from "@armathai/pixi-grid";
 import { getForegroundViewGridConfig } from "../configs/grid-configs/ForegroundViewGridConfig";
-import { getGr } from "./BackgroundView";
+import { getLogoImageConfig } from "../configs/SpriteConfigs";
+import { makeSprite } from "../Utils";
+import { PCTAView } from "./PCTAView";
 
 export class ForegroundView extends PixiGrid {
+    #logo; // Sprite
+    #pcta; // PCTAView
+
     constructor() {
         super();
         this.#build();
@@ -21,7 +26,19 @@ export class ForegroundView extends PixiGrid {
     }
 
     #build() {
-        const gr = getGr(0xff0000);
-        this.setChild("tutorial", gr);
+        this.#buildLogo();
+        this.#buildPCTA();
+        // const gr = getGr(0xff0000);
+        // this.setChild("logo", gr);
+    }
+
+    #buildLogo() {
+        this.#logo = makeSprite(getLogoImageConfig());
+        this.setChild("logo", this.#logo);
+    }
+
+    #buildPCTA() {
+        this.#pcta = new PCTAView();
+        this.setChild("p_cta", this.#pcta);
     }
 }

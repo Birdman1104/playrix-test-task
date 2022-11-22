@@ -17,3 +17,11 @@ export const getOptionSelectedBackgroundImageConfig = (type) => ({
 export const getOptionIconImageConfig = (type) => ({
     texture: `stairs-icons/${type}_icon.png`,
 });
+
+export const getLogoImageConfig = () => ({
+    texture: `ui/logo.png`,
+});
+
+export const getPCTAImageConfig = () => ({
+    texture: `cta/cta_btn.png`,
+});

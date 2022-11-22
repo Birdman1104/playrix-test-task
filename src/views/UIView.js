@@ -1,6 +1,5 @@
 import { PixiGrid } from "@armathai/pixi-grid";
 import { getUIViewGridConfig } from "../configs/grid-configs/UIViewGridConfig";
-import { getGr } from "./BackgroundView";
 
 export class UIView extends PixiGrid {
     constructor() {
@@ -22,7 +21,7 @@ export class UIView extends PixiGrid {
     }
 
     #build() {
-        const gr = getGr(0x789abc);
-        this.setChild("p_cta", gr);
+        // const gr = getGr(0x789abc);
+        // this.setChild("p_cta", gr);
     }
 }

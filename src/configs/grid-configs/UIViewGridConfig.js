@@ -1,4 +1,3 @@
-import { CellScale } from "@armathai/pixi-grid";
 import { isNarrowScreen, lp } from "../../Utils";
 
 export const getUIViewGridConfig = () => {
@@ -11,13 +10,7 @@ const getUIViewGridLandscapeConfig = () => {
         name: "ui",
         debug: { color: 0x00f0ff },
         bounds,
-        cells: [
-            {
-                name: "p_cta",
-                scale: CellScale.fill,
-                bounds: { x: 0.7, y: 0.125, width: 0.2, height: 0.15 },
-            },
-        ],
+        cells: [],
     };
 };
 
@@ -29,13 +22,6 @@ const getUIViewGridPortraitConfig = () => {
         name: "ui",
         debug: { color: 0x00f0ff },
         bounds,
-        cells: [
-            {
-                name: "p_cta",
-                // debug: { color: 0x00f0ff },
-                scale: CellScale.fill,
-                bounds: { x: 0.2, y: 0.05, width: 0.6, height },
-            },
-        ],
+        cells: [],
     };
 };

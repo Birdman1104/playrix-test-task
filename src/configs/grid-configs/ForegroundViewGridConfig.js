@@ -8,12 +8,16 @@ const getForegroundViewGridLandscapeConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     return {
         name: "foreground",
-        // debug: { color: 0x?a0a0ef },
+        debug: { color: 0xa0a0ef },
         bounds,
         cells: [
             {
-                name: "tutorial",
-                bounds: { x: 0, y: 0, width: 0.5, height: 0.5 },
+                name: "logo",
+                bounds: { x: 0.05, y: 0.05, width: 0.25, height: 0.2 },
+            },
+            {
+                name: "p_cta",
+                bounds: { x: 0.25, y: 0.8, width: 0.5, height: 0.15 },
             },
         ],
     };
@@ -27,8 +31,12 @@ const getForegroundViewGridPortraitConfig = () => {
         bounds,
         cells: [
             {
-                name: "tutorial",
-                bounds: { x: 0, y: 0, width: 0.5, height: 0.5 },
+                name: "logo",
+                bounds: { x: 0.05, y: 0.05, width: 0.3, height: 0.2 },
+            },
+            {
+                name: "p_cta",
+                bounds: { x: 0.25, y: 0.8, width: 0.5, height: 0.15 },
             },
         ],
     };
