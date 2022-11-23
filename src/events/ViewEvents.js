@@ -1,5 +1,7 @@
 export const GameViewEvent = {
     OptionClick: "GameViewEventOptionClick",
+    OptionSelected: "GameViewEventOptionSelected",
+    OptionHideComplete: "GameViewEventOptionHideComplete",
     HammerClick: "GameViewEventHammerClick",
 };
 

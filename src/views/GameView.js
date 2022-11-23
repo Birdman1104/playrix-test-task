@@ -1,8 +1,8 @@
 import { lego } from "@armathai/lego";
 import { PixiGrid } from "@armathai/pixi-grid";
-import { BoardState } from "../configs/Constants";
+import { GameState } from "../configs/Constants";
 import { getGameViewGridConfig } from "../configs/grid-configs/GameViewGridConfig";
-import { BoardModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
+import { GameModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
 import { GameViewEvent, OptionsEvent } from "../events/ViewEvents";
 import { OptionView } from "./OptionView";
 import { StairView } from "./StairView";
@@ -15,10 +15,10 @@ export class GameView extends PixiGrid {
         super();
 
         lego.event
-            .on(BoardModelEvents.StairTypeUpdate, this.#onStairTypeUpdate, this)
-            .on(BoardModelEvents.StateUpdate, this.#onBoardStateUpdate, this)
+            .on(GameModelEvents.StairTypeUpdate, this.#onStairTypeUpdate, this)
+            .on(GameModelEvents.StateUpdate, this.#onGameStateUpdate, this)
             .on(StairOptionModelEvents.SelectedUpdate, this.#onOptionSelectedUpdate, this)
-            .on(BoardModelEvents.OptionsUpdate, this.#onOptionsUpdate, this);
+            .on(GameModelEvents.OptionsUpdate, this.#onOptionsUpdate, this);
 
         this.#build();
     }
@@ -62,9 +62,8 @@ export class GameView extends PixiGrid {
     #buildOptions(optionsConfig) {
         this.#options = optionsConfig.map((option, i) => {
             const optionView = new OptionView(option);
-            optionView.on(OptionsEvent.OptionClick, (type) => {
-                lego.event.emit(GameViewEvent.OptionClick, type);
-            });
+            optionView.on(OptionsEvent.OptionClick, (type) => lego.event.emit(GameViewEvent.OptionClick, type));
+            optionView.on(OptionsEvent.OkButtonClick, () => lego.event.emit(GameViewEvent.OptionSelected));
             this.setChild(`option_${i + 1}`, optionView);
             return optionView;
         });
@@ -79,15 +78,16 @@ export class GameView extends PixiGrid {
         this.getOptionByUUID(uuid).setSelected(newValue);
     }
 
-    #onBoardStateUpdate(newState, oldState) {
+    #onGameStateUpdate(newState, oldState) {
         switch (newState) {
-            case BoardState.ClickOnHammer:
+            case GameState.ClickOnHammer:
                 this.#stair.showHammer();
                 break;
-            case BoardState.ChooseStairType:
+            case GameState.ChooseStairType:
                 // this.#buildOptions();
                 break;
-            case BoardState.Idle:
+            case GameState.ChoiceConfirmation:
+                this.#hideOptions();
                 break;
 
             default:
@@ -95,7 +95,9 @@ export class GameView extends PixiGrid {
         }
     }
 
-    #showHammer() {
-        //
+    #hideOptions() {
+        // GSAP
+        this.#options.forEach((o) => o.hide());
+        lego.event.emit(GameViewEvent.OptionHideComplete);
     }
 }

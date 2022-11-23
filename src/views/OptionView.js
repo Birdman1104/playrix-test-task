@@ -48,6 +48,11 @@ export class OptionView extends PIXI.Container {
         value ? this.#showOKButton() : this.#hideOKButton();
     }
 
+    hide() {
+        // GSAP
+        this.visible = false;
+    }
+
     #build() {
         this.#buildBackground();
         this.#buildOKButton();
@@ -91,12 +96,14 @@ export class OptionView extends PIXI.Container {
     }
 
     #hideOKButton() {
+        this.#okButton.interactive = false;
         this.#okButton.visible = false;
         this.#okButton.alpha = 0;
     }
 
     #showOKButton() {
         // GSAP
+        this.#okButton.interactive = true;
         this.#okButton.visible = true;
         this.#okButton.alpha = 1;
     }

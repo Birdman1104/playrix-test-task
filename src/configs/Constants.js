@@ -1,6 +1,8 @@
-export const BoardState = {
-    Unknown: "BoardStateUnknown",
-    Idle: "BoardStateIdle",
-    ClickOnHammer: "BoardStateClickOnHammer",
-    ChooseStairType: "BoardStateChooseStairType",
+export const GameState = {
+    Unknown: "GameStateUnknown",
+    Idle: "GameStateIdle",
+    CTA: "GameStateCTA",
+    ClickOnHammer: "GameStateClickOnHammer",
+    ChooseStairType: "GameStateChooseStairType",
+    ChoiceConfirmation: "GameStateChoiceConfirmation",
 };

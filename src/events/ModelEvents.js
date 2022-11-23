@@ -1,10 +1,9 @@
-export const BoardModelEvents = {
-    OptionsUpdate: "BoardModelOptionsUpdate",
-    StateUpdate: "BoardModelStateUpdate",
-    StairTypeUpdate: "BoardModelStairTypeUpdate",
+export const GameModelEvents = {
+    TutorialUpdate: "GameModelTutorialUpdate",
+    OptionsUpdate: "GameModelOptionsUpdate",
+    StateUpdate: "GameModelStateUpdate",
+    StairTypeUpdate: "GameModelStairTypeUpdate",
 };
-
-export const GameModelEvents = { TutorialUpdate: "GameModelTutorialUpdate", BoardUpdate: "GameModelBoardUpdate" };
 
 export const HeadModelEvents = { GameModelUpdate: "HeadModelGameModelUpdate" };
 

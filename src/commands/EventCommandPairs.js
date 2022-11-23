@@ -1,11 +1,13 @@
 import { lego } from "@armathai/lego";
 import { MainGameEvents } from "../events/MainEvents";
-import { BoardModelEvents } from "../events/ModelEvents";
+import { GameModelEvents } from "../events/ModelEvents";
 import { GameViewEvent } from "../events/ViewEvents";
-import { boardStateUpdateCommand } from "./BoardStateUpdateCommand";
+import { gameStateUpdateCommand } from "./GameStateUpdateCommand";
 import { hammerClickCommand } from "./HammerClickCommand";
 import { onMainViewReadyCommand } from "./MainViewReadyCommand";
 import { optionClickCommand } from "./OptionClickCommand";
+import { optionHideCompleteCommand } from "./OptionHideCompleteCommand";
+import { optionSelectedCommand } from "./OptionSelectedCommand";
 
 export const mapCommands = () => {
     EventCommandPairs.forEach(({ event, command }) => {
@@ -33,7 +35,15 @@ export const EventCommandPairs = Object.freeze([
         command: hammerClickCommand,
     },
     {
-        event: BoardModelEvents.StateUpdate,
-        command: boardStateUpdateCommand,
+        event: GameModelEvents.StateUpdate,
+        command: gameStateUpdateCommand,
+    },
+    {
+        event: GameViewEvent.OptionSelected,
+        command: optionSelectedCommand,
+    },
+    {
+        event: GameViewEvent.OptionHideComplete,
+        command: optionHideCompleteCommand,
     },
 ]);
