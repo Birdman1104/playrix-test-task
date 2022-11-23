@@ -1,3 +1,5 @@
+import * as PIXI from "pixi.js";
+
 export const getRoomImageConfig = () => ({
     texture: "room.png",
 });
@@ -12,6 +14,11 @@ export const getOptionDefaultBackgroundImageConfig = (type) => ({
 
 export const getOptionSelectedBackgroundImageConfig = (type) => ({
     texture: "stairs-icons/choice_selected.png",
+});
+
+export const getHammerIconImageConfig = () => ({
+    texture: "stairs-icons/icon_hammer.png",
+    anchor: new PIXI.Point(0.5, 1),
 });
 
 export const getOptionIconImageConfig = (type) => ({

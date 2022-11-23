@@ -1,8 +1,10 @@
+import { BoardState } from "../configs/Constants";
 import { StairOptions, StairType } from "../configs/StairsOptionsConfig";
 import { ObservableModel } from "./ObservableModel";
 import { StairOptionModel } from "./StairOptionModel";
 
 export class BoardModel extends ObservableModel {
+    _state = BoardState.Unknown;
     _stairType; // StairType
     _options; // StairOptionModel[]
 
@@ -19,6 +21,14 @@ export class BoardModel extends ObservableModel {
         this._options = value;
     }
 
+    get state() {
+        return this._state;
+    }
+
+    set state(value) {
+        this._state = value;
+    }
+
     get stairType() {
         return this._stairType;
     }
@@ -29,8 +39,9 @@ export class BoardModel extends ObservableModel {
 
     init() {
         this._stairType = StairType.Default;
+        this._state = BoardState.ClickOnHammer;
         this._options = [];
-        this.#initOptions();
+        // this.#initOptions();
     }
 
     setStairType(type) {
@@ -40,7 +51,7 @@ export class BoardModel extends ObservableModel {
         });
     }
 
-    #initOptions() {
+    initOptions() {
         this._options = StairOptions.map(({ name }) => new StairOptionModel(name));
     }
 }
