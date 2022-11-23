@@ -65,6 +65,7 @@ export class GameView extends PixiGrid {
             optionView.on(OptionsEvent.OptionClick, (type) => lego.event.emit(GameViewEvent.OptionClick, type));
             optionView.on(OptionsEvent.OkButtonClick, () => lego.event.emit(GameViewEvent.OptionSelected));
             this.setChild(`option_${i + 1}`, optionView);
+            optionView.show(i * 0.05);
             return optionView;
         });
     }

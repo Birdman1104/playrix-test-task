@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import * as PIXI from "pixi.js";
 import {
     getOKButtonImageConfig,
@@ -15,6 +16,7 @@ export class OptionView extends PIXI.Container {
     #type; // StairType
     #selected; // boolean
     #uuid; // string
+    #showOkButtonTimeline; // gsap timeline
 
     constructor({ type, selected, uuid }) {
         super();
@@ -48,6 +50,17 @@ export class OptionView extends PIXI.Container {
         value ? this.#showOKButton() : this.#hideOKButton();
     }
 
+    show(delay) {
+        this.visible = true;
+        gsap.to(this.#background.scale, {
+            x: 1,
+            y: 1,
+            ease: "back.out(2)",
+            delay,
+            onComplete: () => (this.#background.interactive = true),
+        });
+    }
+
     hide() {
         // GSAP
         this.visible = false;
@@ -55,15 +68,17 @@ export class OptionView extends PIXI.Container {
 
     #build() {
         this.#buildBackground();
-        this.#buildOKButton();
         this.#buildIcon();
+        this.#buildOKButton();
+        this.#background.scale = 0;
+        this.visible = false;
     }
 
     #buildBackground() {
-        // GSAP
         this.#background = makeSprite(getOptionDefaultBackgroundImageConfig());
-        this.#background.interactive = true;
+        // this.#background.interactive = true;
         this.#background.on("pointerup", () => this.emit(OptionsEvent.OptionClick, this.#type));
+
         this.addChild(this.#background);
         this.calculateBounds();
     }
@@ -102,9 +117,15 @@ export class OptionView extends PIXI.Container {
     }
 
     #showOKButton() {
-        // GSAP
-        this.#okButton.interactive = true;
+        console.warn(45);
         this.#okButton.visible = true;
-        this.#okButton.alpha = 1;
+        this.#okButton.alpha = 0;
+        this.#okButton.scale = 0;
+        this.#showOkButtonTimeline = gsap.timeline({
+            defaults: { duration: 0.1 },
+            onComplete: () => (this.#okButton.interactive = true),
+        });
+        this.#showOkButtonTimeline.to(this.#okButton, { alpha: 1 }, 0);
+        this.#showOkButtonTimeline.to(this.#okButton.scale, { x: 1, y: 1 }, 0);
     }
 }

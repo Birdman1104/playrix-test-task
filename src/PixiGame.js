@@ -95,7 +95,6 @@ export class PixiGame extends PIXI.Application {
             stats.stats.dom.style.top = "0px";
             stats.stats.dom.style.left = "0px";
             stats.stats.dom.style.position = "absolute";
-            console.warn(window.devicePixelRatio);
             this.ticker.add(() => {
                 stats.stats.update();
             });
