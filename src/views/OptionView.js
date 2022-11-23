@@ -7,8 +7,7 @@ import {
 import { makeSprite } from "../Utils";
 
 export class OptionView extends PIXI.Container {
-    #backgroundDefault; // Sprite
-    #backgroundSelected; // Sprite
+    #background; // Sprite
     #icon; // Sprite
     #type; // StairType
     #selected; // boolean
@@ -41,28 +40,24 @@ export class OptionView extends PIXI.Container {
 
     #build() {
         this.#buildDefaultBackground();
-        this.#buildSelectedBackground();
         this.#buildIcon();
     }
 
     #buildDefaultBackground() {
-        this.#backgroundDefault = makeSprite(getOptionDefaultBackgroundImageConfig());
-        this.#backgroundDefault.interactive = true;
-        this.#backgroundDefault.on("pointerup", () => {
+        this.#background = makeSprite(getOptionDefaultBackgroundImageConfig());
+        this.#background.interactive = true;
+        this.#background.on("pointerup", () => {
             this.emit("OptionClick", this.#type);
         });
-        this.addChild(this.#backgroundDefault);
-    }
-
-    #buildSelectedBackground() {
-        this.#backgroundSelected = makeSprite(getOptionSelectedBackgroundImageConfig());
-        this.#backgroundSelected.visible = false;
-        this.addChild(this.#backgroundSelected);
+        this.addChild(this.#background);
     }
 
     #updateBackground() {
-        this.#backgroundDefault.visible = !this.#selected;
-        this.#backgroundSelected.visible = this.#selected;
+        this.#background.texture = PIXI.Texture.from(
+            this.#selected
+                ? getOptionSelectedBackgroundImageConfig().texture
+                : getOptionDefaultBackgroundImageConfig().texture,
+        );
     }
 
     #buildIcon() {
