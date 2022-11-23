@@ -14,14 +14,16 @@ export class StairView extends PIXI.Container {
     }
 
     showHammer() {
-        setTimeout(() => {
-            this.#hammerIcon.visible = true;
-            this.#hammerIcon.alpha = 1;
-            this.#hammerIcon.scale.set(1, 1);
-        }, 1000);
+        // GSAP
+        // setTimeout(() => {
+        this.#hammerIcon.visible = true;
+        this.#hammerIcon.alpha = 1;
+        this.#hammerIcon.scale.set(1, 1);
+        // }, 1000);
     }
 
     updateType(type) {
+        // GSAP
         this.#stairs.destroy();
         this.#stairs = makeSprite(getStairImageConfig(type));
         this.addChild(this.#stairs);
@@ -48,16 +50,17 @@ export class StairView extends PIXI.Container {
     }
 
     async #hideHammer() {
-        this.#hammerIcon.visible = true;
-        this.#hammerIcon.alpha = 0.5;
-        this.#hammerIcon.scale.set(0.5, 0.5);
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                this.#hammerIcon.alpha = 0;
-                this.#hammerIcon.scale.set(0, 0);
-                this.emit("onHammerClick");
-                resolve();
-            }, 1000);
-        });
+        // GSAP
+        // this.#hammerIcon.visible = true;
+        // this.#hammerIcon.alpha = 0.5;
+        // this.#hammerIcon.scale.set(0.5, 0.5);
+        // return new Promise((resolve) => {
+        //     setTimeout(() => {
+        this.#hammerIcon.alpha = 0;
+        this.#hammerIcon.scale.set(0, 0);
+        this.emit("onHammerClick");
+        //         resolve();
+        //     }, 1000);
+        // });
     }
 }

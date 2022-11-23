@@ -21,6 +21,11 @@ export const getHammerIconImageConfig = () => ({
     anchor: new PIXI.Point(0.5, 1),
 });
 
+export const getOKButtonImageConfig = () => ({
+    texture: "stairs-icons/ok_btn.png",
+    anchor: new PIXI.Point(0.5, 0),
+});
+
 export const getOptionIconImageConfig = (type) => ({
     texture: `stairs-icons/${type}_icon.png`,
 });
