@@ -35,10 +35,10 @@ async function getSetters(file) {
     const setters = [];
     let startIndex = 0;
     const boo = await fs.readFile(file, "utf8");
-    while (boo.indexOf("set", startIndex) > -1) {
-        const firstIndex = boo.indexOf("set", startIndex) + 4;
+    while (boo.indexOf(" set ", startIndex) > -1) {
+        const firstIndex = boo.indexOf("set ", startIndex) + 4;
         const secondIndex = boo.indexOf("(", firstIndex);
-        startIndex += secondIndex;
+        startIndex += secondIndex - firstIndex;
         const prop = boo.slice(firstIndex, secondIndex);
         setters.push(prop);
     }
