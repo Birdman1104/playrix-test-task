@@ -9,7 +9,6 @@ export class StairView extends PIXI.Container {
 
     constructor() {
         super();
-
         this.#build();
     }
 
@@ -24,9 +23,7 @@ export class StairView extends PIXI.Container {
 
     updateType(type) {
         // GSAP
-        this.#stairs.destroy();
-        this.#stairs = makeSprite(getStairImageConfig(type));
-        this.addChild(this.#stairs);
+        this.#stairs.texture = PIXI.Texture.from(getStairImageConfig(type).texture);
     }
 
     #build() {

@@ -18,6 +18,7 @@ export class PixiGame extends PIXI.Application {
             backgroundColor: 0x0,
             backgroundAlpha: 0,
             powerPreference: "high-performance",
+            antialias: true,
             resolution: 1,
             sharedTicker: true,
         });

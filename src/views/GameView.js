@@ -3,7 +3,7 @@ import { PixiGrid } from "@armathai/pixi-grid";
 import { BoardState } from "../configs/Constants";
 import { getGameViewGridConfig } from "../configs/grid-configs/GameViewGridConfig";
 import { BoardModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
-import { GameViewEvent } from "../events/ViewEvents";
+import { GameViewEvent, OptionsEvent } from "../events/ViewEvents";
 import { OptionView } from "./OptionView";
 import { StairView } from "./StairView";
 
@@ -62,7 +62,7 @@ export class GameView extends PixiGrid {
     #buildOptions(optionsConfig) {
         this.#options = optionsConfig.map((option, i) => {
             const optionView = new OptionView(option);
-            optionView.on("OptionClick", (type) => {
+            optionView.on(OptionsEvent.OptionClick, (type) => {
                 lego.event.emit(GameViewEvent.OptionClick, type);
             });
             this.setChild(`option_${i + 1}`, optionView);
