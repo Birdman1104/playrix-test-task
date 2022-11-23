@@ -1,71 +1,23 @@
 {
   "frames": {
-    "stairs/stair_default.png": {
-      "frame": {
-        "x": 3,
-        "y": 3,
-        "w": 814,
-        "h": 636
-      },
-      "rotated": false,
-      "trimmed": true,
-      "spriteSourceSize": {
-        "x": 42,
-        "y": 4,
-        "w": 814,
-        "h": 636
-      },
-      "sourceSize": {
-        "w": 857,
-        "h": 652
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "stairs/stair_green.png": {
-      "frame": {
-        "x": 3,
-        "y": 645,
-        "w": 580,
-        "h": 645
-      },
-      "rotated": false,
-      "trimmed": true,
-      "spriteSourceSize": {
-        "x": 135,
-        "y": 7,
-        "w": 580,
-        "h": 645
-      },
-      "sourceSize": {
-        "w": 857,
-        "h": 652
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
     "stairs/stair_black.png": {
       "frame": {
-        "x": 823,
+        "x": 3,
         "y": 3,
-        "w": 523,
-        "h": 615
+        "w": 522,
+        "h": 614
       },
       "rotated": false,
-      "trimmed": true,
+      "trimmed": false,
       "spriteSourceSize": {
-        "x": 166,
-        "y": 18,
-        "w": 523,
-        "h": 615
+        "x": 0,
+        "y": 0,
+        "w": 522,
+        "h": 614
       },
       "sourceSize": {
-        "w": 857,
-        "h": 652
+        "w": 522,
+        "h": 614
       },
       "pivot": {
         "x": 0.5,
@@ -74,22 +26,22 @@
     },
     "stairs/stair_brown.png": {
       "frame": {
-        "x": 589,
-        "y": 645,
-        "w": 544,
+        "x": 531,
+        "y": 3,
+        "w": 532,
         "h": 614
       },
       "rotated": false,
-      "trimmed": true,
+      "trimmed": false,
       "spriteSourceSize": {
-        "x": 156,
-        "y": 19,
-        "w": 544,
+        "x": 0,
+        "y": 0,
+        "w": 532,
         "h": 614
       },
       "sourceSize": {
-        "w": 857,
-        "h": 652
+        "w": 532,
+        "h": 614
       },
       "pivot": {
         "x": 0.5,
@@ -99,7 +51,7 @@
     "cta/cta_popup.png": {
       "frame": {
         "x": 3,
-        "y": 1296,
+        "y": 623,
         "w": 610,
         "h": 394
       },
@@ -120,10 +72,58 @@
         "y": 0.5
       }
     },
+    "stairs/stair_green.png": {
+      "frame": {
+        "x": 3,
+        "y": 1023,
+        "w": 522,
+        "h": 608
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 0,
+        "w": 522,
+        "h": 608
+      },
+      "sourceSize": {
+        "w": 524,
+        "h": 608
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "stairs/stair_default.png": {
+      "frame": {
+        "x": 1069,
+        "y": 3,
+        "w": 546,
+        "h": 496
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 546,
+        "h": 496
+      },
+      "sourceSize": {
+        "w": 546,
+        "h": 496
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "decors/couch.png": {
       "frame": {
-        "x": 619,
-        "y": 1265,
+        "x": 1069,
+        "y": 505,
         "w": 374,
         "h": 306
       },
@@ -146,8 +146,8 @@
     },
     "cta/cta_btn.png": {
       "frame": {
-        "x": 1352,
-        "y": 3,
+        "x": 619,
+        "y": 623,
         "w": 364,
         "h": 124
       },
@@ -170,8 +170,8 @@
     },
     "decors/austin.png": {
       "frame": {
-        "x": 999,
-        "y": 1265,
+        "x": 1449,
+        "y": 505,
         "w": 86,
         "h": 306
       },
@@ -195,7 +195,7 @@
     "ui/logo.png": {
       "frame": {
         "x": 619,
-        "y": 1577,
+        "y": 753,
         "w": 298,
         "h": 97
       },
@@ -218,8 +218,8 @@
     },
     "decors/plant_1.png": {
       "frame": {
-        "x": 1091,
-        "y": 1265,
+        "x": 531,
+        "y": 1023,
         "w": 148,
         "h": 244
       },
@@ -242,8 +242,8 @@
     },
     "decors/table.png": {
       "frame": {
-        "x": 1352,
-        "y": 133,
+        "x": 531,
+        "y": 1273,
         "w": 240,
         "h": 182
       },
@@ -266,8 +266,8 @@
     },
     "decors/globe.png": {
       "frame": {
-        "x": 1352,
-        "y": 321,
+        "x": 923,
+        "y": 753,
         "w": 120,
         "h": 180
       },
@@ -290,8 +290,8 @@
     },
     "decors/book_stand.png": {
       "frame": {
-        "x": 1091,
-        "y": 1515,
+        "x": 531,
+        "y": 1461,
         "w": 100,
         "h": 165
       },
@@ -314,8 +314,8 @@
     },
     "stairs-icons/ok_btn.png": {
       "frame": {
-        "x": 923,
-        "y": 1577,
+        "x": 619,
+        "y": 939,
         "w": 141,
         "h": 78
       },
@@ -338,8 +338,8 @@
     },
     "decors/plant_2.png": {
       "frame": {
-        "x": 1598,
-        "y": 133,
+        "x": 777,
+        "y": 856,
         "w": 103,
         "h": 130
       },
@@ -362,8 +362,8 @@
     },
     "stairs-icons/icon_hammer.png": {
       "frame": {
-        "x": 1598,
-        "y": 269,
+        "x": 637,
+        "y": 1461,
         "w": 107,
         "h": 127
       },
@@ -386,8 +386,8 @@
     },
     "stairs-icons/choice_default.png": {
       "frame": {
-        "x": 1197,
-        "y": 1515,
+        "x": 750,
+        "y": 1461,
         "w": 120,
         "h": 120
       },
@@ -410,8 +410,8 @@
     },
     "stairs-icons/choice_selected.png": {
       "frame": {
-        "x": 1478,
-        "y": 402,
+        "x": 685,
+        "y": 1023,
         "w": 119,
         "h": 119
       },
@@ -434,8 +434,8 @@
     },
     "stairs-icons/stair_green_icon.png": {
       "frame": {
-        "x": 1603,
-        "y": 402,
+        "x": 685,
+        "y": 1148,
         "w": 90,
         "h": 82
       },
@@ -458,8 +458,8 @@
     },
     "stairs-icons/stair_brown_icon.png": {
       "frame": {
-        "x": 1603,
-        "y": 490,
+        "x": 777,
+        "y": 1236,
         "w": 87,
         "h": 81
       },
@@ -482,8 +482,8 @@
     },
     "stairs-icons/stair_black_icon.png": {
       "frame": {
-        "x": 1352,
-        "y": 507,
+        "x": 781,
+        "y": 1148,
         "w": 85,
         "h": 80
       },
@@ -511,8 +511,8 @@
     "image": "main.png",
     "format": "RGBA8888",
     "size": {
-      "w": 1719,
-      "h": 1693
+      "w": 1618,
+      "h": 1634
     },
     "scale": 1
   }
