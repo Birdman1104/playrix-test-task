@@ -1,5 +1,6 @@
 export const BoardModelEvents = {
     OptionsUpdate: "BoardModelOptionsUpdate",
+    StateUpdate: "BoardModelStateUpdate",
     StairTypeUpdate: "BoardModelStairTypeUpdate",
 };
 
