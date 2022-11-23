@@ -9,3 +9,7 @@ export const OptionsEvent = {
     OkButtonClick: "OptionsEventOkButtonClick",
     OptionClick: "OptionsEventOptionClick",
 };
+
+export const StairsEvent = {
+    HammerIconClick: "StairsEventHammerIconClick",
+};

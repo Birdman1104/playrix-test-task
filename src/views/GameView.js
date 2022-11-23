@@ -3,7 +3,7 @@ import { PixiGrid } from "@armathai/pixi-grid";
 import { GameState } from "../configs/Constants";
 import { getGameViewGridConfig } from "../configs/grid-configs/GameViewGridConfig";
 import { GameModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
-import { GameViewEvent, OptionsEvent } from "../events/ViewEvents";
+import { GameViewEvent, OptionsEvent, StairsEvent } from "../events/ViewEvents";
 import { OptionView } from "./OptionView";
 import { StairView } from "./StairView";
 
@@ -49,7 +49,7 @@ export class GameView extends PixiGrid {
 
     #buildDefaultStairs() {
         this.#stair = new StairView();
-        this.#stair.on("onHammerClick", () => {
+        this.#stair.on(StairsEvent.HammerIconClick, () => {
             lego.event.emit(GameViewEvent.HammerClick);
         });
         this.setChild("stair", this.#stair);

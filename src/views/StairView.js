@@ -1,11 +1,16 @@
+import gsap from "gsap";
 import * as PIXI from "pixi.js";
 import { getHammerIconImageConfig, getStairImageConfig } from "../configs/SpriteConfigs";
 import { StairType } from "../configs/StairsOptionsConfig";
+import { StairsEvent } from "../events/ViewEvents";
 import { makeSprite } from "../Utils";
 
 export class StairView extends PIXI.Container {
     #stairs; // Sprite
     #hammerIcon; //Sprite
+    #stairUpdateAnimation; //gsap timeline
+    #hammerShowAnimation; //gsap timeline
+    #hammerHideAnimation; //gsap timeline
 
     constructor() {
         super();
@@ -13,17 +18,22 @@ export class StairView extends PIXI.Container {
     }
 
     showHammer() {
-        // GSAP
-        // setTimeout(() => {
         this.#hammerIcon.visible = true;
-        this.#hammerIcon.alpha = 1;
-        this.#hammerIcon.scale.set(1, 1);
-        // }, 1000);
+        this.#hammerIcon.alpha = 0;
+        this.#hammerIcon.scale.set(0);
+
+        this.#hammerShowAnimation?.kill();
+        this.#hammerShowAnimation = gsap.timeline({
+            duration: 0.5,
+            onComplete: () => (this.#hammerIcon.interactive = true),
+        });
+        this.#hammerShowAnimation.to(this.#hammerIcon.scale, { x: 1, y: 1, ease: "back.out(1.8)" }, 0);
+        this.#hammerShowAnimation.to(this.#hammerIcon, { alpha: 1 }, 0);
     }
 
     updateType(type) {
-        // GSAP
         this.#stairs.texture = PIXI.Texture.from(getStairImageConfig(type).texture);
+        this.#stairUpdate();
     }
 
     #build() {
@@ -41,23 +51,29 @@ export class StairView extends PIXI.Container {
         this.#hammerIcon.visible = false;
         this.#hammerIcon.alpha = 0;
         this.#hammerIcon.scale.set(0, 0);
-        this.#hammerIcon.interactive = true;
         this.#hammerIcon.on("pointerdown", this.#hideHammer, this);
         this.addChild(this.#hammerIcon);
     }
 
-    async #hideHammer() {
-        // GSAP
-        // this.#hammerIcon.visible = true;
-        // this.#hammerIcon.alpha = 0.5;
-        // this.#hammerIcon.scale.set(0.5, 0.5);
-        // return new Promise((resolve) => {
-        //     setTimeout(() => {
-        this.#hammerIcon.alpha = 0;
-        this.#hammerIcon.scale.set(0, 0);
-        this.emit("onHammerClick");
-        //         resolve();
-        //     }, 1000);
-        // });
+    #hideHammer() {
+        this.#hammerHideAnimation?.kill();
+        this.#hammerHideAnimation = gsap.timeline({
+            duration: 0.5,
+            onComplete: () => {
+                this.emit(StairsEvent.HammerIconClick);
+                this.#hammerIcon.visible = false;
+            },
+        });
+        this.#hammerHideAnimation.to(this.#hammerIcon.scale, { x: 0, y: 0 }, 0);
+        this.#hammerHideAnimation.to(this.#hammerIcon, { alpha: 0 }, 0);
+    }
+
+    #stairUpdate() {
+        this.#stairs.alpha = 0;
+        this.#stairs.y = 0;
+        this.#stairUpdateAnimation?.kill();
+        this.#stairUpdateAnimation = gsap.timeline({ duration: 0.5 });
+        this.#stairUpdateAnimation.to(this.#stairs, { alpha: 1 }, 0);
+        this.#stairUpdateAnimation.from(this.#stairs, { y: "-=60" }, 0);
     }
 }
