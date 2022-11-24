@@ -1,18 +1,18 @@
-import { GameState } from "../../configs/Constants";
-import Head from "../../models/HeadModel";
+import { lego } from "@armathai/lego";
+import { gameStateChooseStairTypeGuard } from "../../guards/GameStateChooseStairTypeGuard";
+import { GameStateOnHammerClickGuard } from "../../guards/GameStateOnHammerClickGuard";
+import { resetHintTimerCommand } from "../hint/ResetHintTimerCommand";
+import { initOptionsCommand } from "./InitOptionsCommand";
 
-export const gameStateUpdateCommand = (state) => {
-    switch (state) {
-        case GameState.ClickOnHammer:
-            Head.hint.startVisibilityTimer();
-            break;
-        case GameState.ChooseStairType:
-            Head.gameModel.initOptions();
-            break;
-        case GameState.Idle:
-            break;
+export const gameStateUpdateCommand = () => {
+    lego.command
+        // GameState.ClickOnHammer
+        .guard(GameStateOnHammerClickGuard)
+        .execute(resetHintTimerCommand)
 
-        default:
-            break;
-    }
+        // GameState.ChooseStairType
+        .guard(gameStateChooseStairTypeGuard)
+        .execute(initOptionsCommand)
+        .guard(gameStateChooseStairTypeGuard)
+        .execute(resetHintTimerCommand);
 };

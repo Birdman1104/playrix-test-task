@@ -1,14 +1,10 @@
 import { lego } from "@armathai/lego";
-import { hintModelGuard } from "../guards/HintModelGuard";
-import { hideHintCommand } from "./hint/HideHintCommand";
-import { startHintVisibilityTimerCommand } from "./hint/StartHintVisibilityTimerCommand";
-import { stopHintVisibilityTimerCommand } from "./hint/StopHintVisibilityTimerCommand";
+import { gameShouldShowHintGuard } from "../guards/GameShouldShowHintGuard";
+import { resetHintTimerCommand } from "./hint/ResetHintTimerCommand";
 
 export const onResizeCommand = () => {
     lego.command
         //
-        .guard(hintModelGuard)
-        .execute(hideHintCommand)
-        .execute(stopHintVisibilityTimerCommand)
-        .execute(startHintVisibilityTimerCommand);
+        .guard(gameShouldShowHintGuard)
+        .execute(resetHintTimerCommand);
 };

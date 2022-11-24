@@ -19,17 +19,17 @@ const getGameViewGridLandscapeConfig = () => {
             },
             {
                 name: "option_1",
-                bounds: { x: 0.605, y: 0, width: 0.1, height: 0.2 },
+                bounds: { x: 0.6, y: 0, width: 0.1, height: 0.2 },
                 offset: { x: 0, y: 15 },
             },
             {
                 name: "option_2",
-                bounds: { x: 0.7, y: 0, width: 0.1, height: 0.2 },
+                bounds: { x: 0.71, y: 0, width: 0.1, height: 0.2 },
                 offset: { x: 0, y: 15 },
             },
             {
                 name: "option_3",
-                bounds: { x: 0.795, y: 0, width: 0.1, height: 0.2 },
+                bounds: { x: 0.82, y: 0, width: 0.1, height: 0.2 },
                 offset: { x: 0, y: 15 },
             },
         ],

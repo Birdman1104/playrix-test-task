@@ -1,4 +1,4 @@
-import { delayRunnable, removeRunnable } from "../Utils";
+import { delayRunnable } from "../Utils";
 import { ObservableModel } from "./ObservableModel";
 
 const hintDelay = 2; // seconds
@@ -24,7 +24,7 @@ export class HintModel extends ObservableModel {
     }
 
     stopVisibilityTimer() {
-        removeRunnable(this._visibilityTimer);
+        // removeRunnable(this._visibilityTimer);
         this._visibilityTimer = null;
     }
 

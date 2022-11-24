@@ -2,7 +2,7 @@ import { lego } from "@armathai/lego";
 import { PixiGrid } from "@armathai/pixi-grid";
 import { getForegroundViewGridConfig } from "../configs/grid-configs/ForegroundViewGridConfig";
 import { getLogoImageConfig } from "../configs/SpriteConfigs";
-import { HintModelEvents } from "../events/ModelEvents";
+import { GameModelEvents, HeadModelEvents, HintModelEvents } from "../events/ModelEvents";
 import { makeSprite } from "../Utils";
 import { HintView } from "./HintView";
 import { PCTAView } from "./PCTAView";
@@ -15,7 +15,10 @@ export class ForegroundView extends PixiGrid {
     constructor() {
         super();
 
-        lego.event.on(HintModelEvents.VisibleUpdate, this.#onHintVisibleUpdate, this);
+        lego.event
+            .on(HeadModelEvents.HintUpdate, this.#onHintUpdate, this)
+            .on(HintModelEvents.VisibleUpdate, this.#onHintVisibleUpdate, this)
+            .on(GameModelEvents.StateUpdate, this.#onGameModelStateUpdate, this);
         this.#build();
     }
 
@@ -33,7 +36,6 @@ export class ForegroundView extends PixiGrid {
 
     #build() {
         this.#buildLogo();
-        this.#buildHint();
         this.#buildPCTA();
     }
 
@@ -42,9 +44,17 @@ export class ForegroundView extends PixiGrid {
         this.setChild("logo", this.#logo);
     }
 
+    #onHintUpdate(hint) {
+        hint ? this.#buildHint() : this.#destroyHint();
+    }
+
     #buildHint() {
         this.#hint = new HintView();
         this.addChild(this.#hint);
+    }
+
+    #destroyHint() {
+        this.#hint.destroy();
     }
 
     #buildPCTA() {
@@ -54,5 +64,9 @@ export class ForegroundView extends PixiGrid {
 
     #onHintVisibleUpdate(visible) {
         visible ? this.#hint.show() : this.#hint.hide();
+    }
+
+    #onGameModelStateUpdate(state) {
+        this.#hint && (this.#hint.gameState = state);
     }
 }

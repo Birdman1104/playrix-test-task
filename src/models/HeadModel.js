@@ -7,10 +7,10 @@ class HeadModel extends ObservableModel {
     _hint; // HintModel;
 
     constructor() {
-        super("Head");
-        this.makeObservable();
+        super("HeadModel");
         this._gameModel = null;
         this._hint = null;
+        this.makeObservable();
     }
 
     set gameModel(value) {
@@ -30,8 +30,8 @@ class HeadModel extends ObservableModel {
     }
 
     init() {
-        this.#initHint();
-        this.#initGameModel();
+        // this._gameModel = null;
+        // this._hint = null;
     }
 
     destroyHint() {
@@ -39,12 +39,12 @@ class HeadModel extends ObservableModel {
         this._hint = null;
     }
 
-    #initHint() {
+    initHint() {
         this._hint = new HintModel();
         this._hint.initialize();
     }
 
-    #initGameModel() {
+    initGameModel() {
         this._gameModel = new GameModel();
         this._gameModel.init();
     }

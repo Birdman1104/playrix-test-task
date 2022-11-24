@@ -38,6 +38,9 @@ export class OptionView extends PIXI.Container {
         return this.#selected;
     }
 
+    getHintPosition() {
+        return this.toGlobal(new PIXI.Point(0, 60));
+    }
     getBounds() {
         // const size from background image
         // needs for proper scaling in cell

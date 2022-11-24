@@ -27,6 +27,10 @@ export class GameView extends PixiGrid {
         return "GameView";
     }
 
+    getHintPosition() {
+        return this.#options.map((o) => this.toGlobal(o.getHintPosition()));
+    }
+
     getGridConfig() {
         return getGameViewGridConfig();
     }

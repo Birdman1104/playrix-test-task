@@ -6,7 +6,7 @@ import { TutorialModel } from "./TutorialModel";
 
 export class GameModel extends ObservableModel {
     _tutorial; // TutorialModel
-    _state = GameState.Unknown;
+    _state;
     _stairType; // StairType
     _options; // StairOptionModel[]
 
@@ -49,7 +49,7 @@ export class GameModel extends ObservableModel {
 
     init() {
         this._stairType = StairType.Default;
-        this._state = GameState.ClickOnHammer;
+        this._state = GameState.Unknown;
         this._options = [];
     }
 
