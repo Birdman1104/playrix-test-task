@@ -4,6 +4,7 @@ import { GameState } from "../configs/Constants";
 import { getGameViewGridConfig } from "../configs/grid-configs/GameViewGridConfig";
 import { GameModelEvents, StairOptionModelEvents } from "../events/ModelEvents";
 import { GameViewEvent, OptionsEvent, StairsEvent } from "../events/ViewEvents";
+import { getDisplayObjectByProperty } from "../Utils";
 import { OptionView } from "./OptionView";
 import { StairView } from "./StairView";
 
@@ -83,6 +84,8 @@ export class GameView extends PixiGrid {
         switch (newState) {
             case GameState.ClickOnHammer:
                 this.#stair.showHammer();
+                const a = getDisplayObjectByProperty("name", "UIView");
+                console.warn(a);
                 break;
             case GameState.ChooseStairType:
                 this.#options.forEach((o, i) => o.show(i * 0.05));

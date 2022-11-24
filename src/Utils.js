@@ -1,4 +1,5 @@
 import * as PIXI from "pixi.js";
+import pixiApp from "./PixiApp";
 
 export const lp = (l, p) => {
     const { clientWidth: w, clientHeight: h } = document.body;
@@ -59,6 +60,29 @@ export const makeSprite = (config) => {
     if (tint) sprite.tint = tint;
 
     return sprite;
+};
+
+export const getDisplayObjectByProperty = (property, value, parent = null) => {
+    const { children } = parent || pixiApp.pixiGame.stage;
+
+    if (!children || children.length === 0) {
+        return null;
+    }
+
+    for (let i = 0; i < children.length; i += 1) {
+        const child = children[i];
+        if (child[property] === value) {
+            return child;
+        }
+        if (child instanceof PIXI.Container) {
+            const displayObject = getDisplayObjectByProperty(property, value, child);
+            if (displayObject) {
+                return displayObject;
+            }
+        }
+    }
+
+    return null;
 };
 
 export const openPlayMarketPage = () => {

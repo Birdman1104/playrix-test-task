@@ -46,3 +46,7 @@ export const getWellDoneImageConfig = () => ({
 export const getCTAPopupImageConfig = () => ({
     texture: `cta/cta_popup.png`,
 });
+
+export const getHandImageConfig = () => ({
+    texture: `ui/hand.png`,
+});

@@ -8,6 +8,10 @@ class PixiApp {
         //
     }
 
+    get pixiGame() {
+        return this.#pixiGame;
+    }
+
     init() {
         this.#pixiGame = new PixiGame();
         this.#pixiGame.init();
