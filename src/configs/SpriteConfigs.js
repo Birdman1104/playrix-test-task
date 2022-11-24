@@ -42,3 +42,7 @@ export const getWellDoneImageConfig = () => ({
     texture: `cta/well_done.png`,
     anchor: new PIXI.Point(0.5, 1),
 });
+
+export const getCTAPopupImageConfig = () => ({
+    texture: `cta/cta_popup.png`,
+});

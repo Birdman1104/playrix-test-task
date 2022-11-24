@@ -60,3 +60,7 @@ export const makeSprite = (config) => {
 
     return sprite;
 };
+
+export const openPlayMarketPage = () => {
+    window.open("https://play.google.com/store/apps/dev?id=6598096594674427568&hl=en&gl=US&pli=1", "_self");
+};

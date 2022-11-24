@@ -1,8 +1,6 @@
 import * as PIXI from "pixi.js";
-import { GameState } from "../configs/Constants";
 import { getPCTAImageConfig } from "../configs/SpriteConfigs";
-import Head from "../models/HeadModel";
-import { makeSprite } from "../Utils";
+import { makeSprite, openPlayMarketPage } from "../Utils";
 
 export class PCTAView extends PIXI.Container {
     #button; // Sprite
@@ -17,7 +15,9 @@ export class PCTAView extends PIXI.Container {
         this.#button = makeSprite(getPCTAImageConfig());
         this.#button.interactive = true;
         this.#button.on("pointerdown", () => {
-            Head.gameModel.state = GameState.CTA;
+            openPlayMarketPage();
+            // window.open("https://play.google.com/store/apps/dev?id=6598096594674427568&hl=en&gl=US&pli=1", "_self");
+            // Head.gameModel.state = GameState.CTA;
         });
         this.addChild(this.#button);
     }

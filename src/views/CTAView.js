@@ -7,9 +7,12 @@ import { getWellDoneImageConfig } from "../configs/SpriteConfigs";
 import { GameModelEvents } from "../events/ModelEvents";
 import { getGameBounds, makeSprite } from "../Utils";
 import { getGr } from "./BackgroundView";
+import { CTAPopup } from "./CTAPopup";
 
 export class CTAView extends PixiGrid {
     #wellDone; // Sprite
+    #popup; // Sprite
+
     constructor() {
         super();
 
@@ -32,12 +35,18 @@ export class CTAView extends PixiGrid {
     #build() {
         this.#buildBlocker();
         this.#buildWellDone();
+        this.#buildPopup();
         this.visible = false;
     }
 
     #buildBlocker() {
         const gr = getGr(0x0, 0.5);
         this.setChild("blocker", gr);
+    }
+
+    #buildPopup() {
+        this.#popup = new CTAPopup();
+        this.setChild("popup", this.#popup);
     }
 
     #buildWellDone() {
@@ -60,7 +69,7 @@ export class CTAView extends PixiGrid {
     #showWellDone() {
         const { width, height } = getGameBounds();
         const timeline = gsap.timeline({
-            defaults: { duration: 0.5 },
+            defaults: { duration: 0.75, ease: "elastic.inOut(1, 0.75)" },
             onComplete: () => {
                 this.#wellDone.visible = false;
                 this.#showPopup();
@@ -76,6 +85,6 @@ export class CTAView extends PixiGrid {
     }
 
     #showPopup() {
-        //
+        this.#popup.show();
     }
 }

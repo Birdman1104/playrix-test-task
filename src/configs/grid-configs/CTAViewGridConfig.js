@@ -9,7 +9,7 @@ const getCTAViewGridLandscapeConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     return {
         name: "cta_view",
-        debug: { color: 0x000fff },
+        // debug: { color: 0x000fff },
         bounds,
         cells: [
             {
