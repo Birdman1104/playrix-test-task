@@ -37,8 +37,4 @@ export class HintModel extends ObservableModel {
     destroy() {
         this.stopVisibilityTimer();
     }
-
-    init() {
-        //
-    }
 }

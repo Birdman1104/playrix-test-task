@@ -41,7 +41,7 @@ class HeadModel extends ObservableModel {
 
     #initHint() {
         this._hint = new HintModel();
-        this._hint.init();
+        this._hint.initialize();
     }
 
     #initGameModel() {

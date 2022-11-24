@@ -1,5 +1,5 @@
 import { lego } from "@armathai/lego";
-import { MainGameEvents, WindowEvent } from "../events/MainEvents";
+import { MainGameEvents } from "../events/MainEvents";
 import { GameModelEvents } from "../events/ModelEvents";
 import { GameViewEvent } from "../events/ViewEvents";
 import { gameStateUpdateCommand } from "./GameStateUpdateCommand";
@@ -24,7 +24,7 @@ export const unmapCommands = () => {
 
 export const EventCommandPairs = Object.freeze([
     {
-        event: WindowEvent.Resize,
+        event: MainGameEvents.Resize,
         command: onResizeCommand,
     },
     {
