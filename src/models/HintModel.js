@@ -1,4 +1,4 @@
-import { delayRunnable } from "../Utils";
+import { delayRunnable, removeRunnable } from "../Utils";
 import { ObservableModel } from "./ObservableModel";
 
 const hintDelay = 2; // seconds
@@ -16,15 +16,19 @@ export class HintModel extends ObservableModel {
 
     set visible(value) {
         this._visible = value;
-        this.stopVisibilityTimer();
     }
 
     get timerAlreadyStarted() {
         return this._visibilityTimer;
     }
 
+    destroy() {
+        removeRunnable(this._visibilityTimer);
+        this.stopVisibilityTimer();
+    }
+
     stopVisibilityTimer() {
-        // removeRunnable(this._visibilityTimer);
+        removeRunnable(this._visibilityTimer);
         this._visibilityTimer = null;
     }
 
@@ -32,9 +36,5 @@ export class HintModel extends ObservableModel {
         this._visibilityTimer = delayRunnable(hintDelay, () => {
             this._visible = true;
         });
-    }
-
-    destroy() {
-        this.stopVisibilityTimer();
     }
 }

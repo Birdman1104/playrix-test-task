@@ -14,7 +14,7 @@ const getCTAViewGridLandscapeConfig = () => {
         cells: [
             {
                 name: "popup",
-                bounds: { x: 0.25, y: 0.25, width: 0.5, height: 0.5 },
+                bounds: { x: 0.25, y: 0.2, width: 0.5, height: 0.5 },
             },
             {
                 name: "blocker",

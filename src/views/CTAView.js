@@ -12,6 +12,7 @@ import { CTAPopup } from "./CTAPopup";
 export class CTAView extends PixiGrid {
     #wellDone; // Sprite
     #popup; // Sprite
+    #blocker; // Graphics
 
     constructor() {
         super();
@@ -40,8 +41,8 @@ export class CTAView extends PixiGrid {
     }
 
     #buildBlocker() {
-        const gr = getGr(0x0, 0.5);
-        this.setChild("blocker", gr);
+        this.#blocker = getGr(0x0, 0.5);
+        this.setChild("blocker", this.#blocker);
     }
 
     #buildPopup() {
@@ -58,12 +59,21 @@ export class CTAView extends PixiGrid {
         switch (state) {
             case GameState.CTA:
                 this.visible = true;
-                this.#showWellDone();
+                this.#show();
                 break;
 
             default:
                 break;
         }
+    }
+
+    #show() {
+        this.#showBlocker();
+        this.#showWellDone();
+    }
+
+    #showBlocker() {
+        gsap.from(this.#blocker, { alpha: 0 });
     }
 
     #showWellDone() {
