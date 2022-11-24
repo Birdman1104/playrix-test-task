@@ -1,5 +1,5 @@
 import { lego } from "@armathai/lego";
-import { MainGameEvents } from "../events/MainEvents";
+import { MainGameEvents, WindowEvent } from "../events/MainEvents";
 import { GameModelEvents } from "../events/ModelEvents";
 import { GameViewEvent } from "../events/ViewEvents";
 import { gameStateUpdateCommand } from "./GameStateUpdateCommand";
@@ -8,6 +8,7 @@ import { onMainViewReadyCommand } from "./MainViewReadyCommand";
 import { optionClickCommand } from "./OptionClickCommand";
 import { optionHideCompleteCommand } from "./OptionHideCompleteCommand";
 import { optionSelectedCommand } from "./OptionSelectedCommand";
+import { onResizeCommand } from "./ResizeCommand";
 
 export const mapCommands = () => {
     EventCommandPairs.forEach(({ event, command }) => {
@@ -22,6 +23,10 @@ export const unmapCommands = () => {
 };
 
 export const EventCommandPairs = Object.freeze([
+    {
+        event: WindowEvent.Resize,
+        command: onResizeCommand,
+    },
     {
         event: MainGameEvents.MainViewReady,
         command: onMainViewReadyCommand,

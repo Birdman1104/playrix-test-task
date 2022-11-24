@@ -17,6 +17,15 @@ export class StairView extends PIXI.Container {
         this.#build();
     }
 
+    get name() {
+        return "StairView";
+    }
+
+    getHintPosition() {
+        const { x, y } = this.#hammerIcon;
+        return this.toGlobal(new PIXI.Point(x, y + 15));
+    }
+
     showHammer() {
         this.#hammerIcon.visible = true;
         this.#hammerIcon.alpha = 0;

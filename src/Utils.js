@@ -88,3 +88,37 @@ export const getDisplayObjectByProperty = (property, value, parent = null) => {
 export const openPlayMarketPage = () => {
     window.open("https://play.google.com/store/apps/dev?id=6598096594674427568&hl=en&gl=US&pli=1", "_self");
 };
+
+export const delayRunnable = (delay, runnable, context = null, ...args) => {
+    let delayMS = delay * 1000;
+    const delayWrapper = () => {
+        delayMS -= PIXI.Ticker.shared.deltaMS;
+        if (delayMS <= 0) {
+            runnable.call(context, ...args);
+            PIXI.Ticker.shared.remove(delayWrapper);
+        }
+    };
+    PIXI.Ticker.shared.add(delayWrapper);
+    return delayWrapper;
+};
+
+export const removeRunnable = (runnable) => {
+    PIXI.Ticker.shared.remove(runnable);
+};
+
+export const loopRunnable = (delay, runnable, context, ...args) => {
+    let delayMS = delay * 1000;
+    const delayWrapper = () => {
+        delayMS -= PIXI.Ticker.shared.deltaMS;
+        if (delayMS <= 0) {
+            runnable.call(context, ...args);
+            delayMS = delay * 1000;
+        }
+    };
+    PIXI.Ticker.shared.add(delayWrapper);
+    return delayWrapper;
+};
+
+export const postRunnable = (runnable, context = null, ...args) => {
+    return delayRunnable(PIXI.Ticker.shared.deltaMS / 1000, runnable, context, ...args);
+};

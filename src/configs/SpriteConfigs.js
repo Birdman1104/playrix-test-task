@@ -49,4 +49,5 @@ export const getCTAPopupImageConfig = () => ({
 
 export const getHandImageConfig = () => ({
     texture: `ui/hand.png`,
+    anchor: new PIXI.Point(0.69, 0.07),
 });

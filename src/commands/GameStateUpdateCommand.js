@@ -4,6 +4,7 @@ import Head from "../models/HeadModel";
 export const gameStateUpdateCommand = (state) => {
     switch (state) {
         case GameState.ClickOnHammer:
+            Head.hint.startVisibilityTimer();
             break;
         case GameState.ChooseStairType:
             Head.gameModel.initOptions();

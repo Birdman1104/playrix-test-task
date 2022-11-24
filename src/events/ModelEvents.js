@@ -5,6 +5,8 @@ export const GameModelEvents = {
     StairTypeUpdate: "GameModelStairTypeUpdate",
 };
 
-export const HeadModelEvents = { GameModelUpdate: "HeadModelGameModelUpdate" };
+export const HeadModelEvents = { GameModelUpdate: "HeadModelGameModelUpdate", HintUpdate: "HeadModelHintUpdate" };
+
+export const HintModelEvents = { VisibleUpdate: "HintModelVisibleUpdate" };
 
 export const StairOptionModelEvents = { SelectedUpdate: "StairOptionModelSelectedUpdate" };
