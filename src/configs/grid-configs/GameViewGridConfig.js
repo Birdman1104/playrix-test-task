@@ -10,25 +10,27 @@ const getGameViewGridLandscapeConfig = () => {
     return {
         name: "game",
         bounds,
-        debug: { color: 0x0000ff },
+        // debug: { color: 0x0000ff },
         cells: [
             {
                 name: "stair",
-                scale: CellScale.envelop,
-                align: CellAlign.leftCenter,
-                bounds: { x: 0.6, y: 0.2, width: 0.5, height: 0.6 },
+                align: CellAlign.rightBottom,
+                bounds: { x: 0.71, y: 0.1, width: 0.38, height: 0.8 },
             },
             {
                 name: "option_1",
-                bounds: { x: 0.1, y: 0.5, width: 0.1, height: 0.1 },
+                bounds: { x: 0.605, y: 0, width: 0.1, height: 0.2 },
+                offset: { x: 0, y: 15 },
             },
             {
                 name: "option_2",
-                bounds: { x: 0.3, y: 0.5, width: 0.1, height: 0.1 },
+                bounds: { x: 0.7, y: 0, width: 0.1, height: 0.2 },
+                offset: { x: 0, y: 15 },
             },
             {
                 name: "option_3",
-                bounds: { x: 0.5, y: 0.5, width: 0.1, height: 0.1 },
+                bounds: { x: 0.795, y: 0, width: 0.1, height: 0.2 },
+                offset: { x: 0, y: 15 },
             },
         ],
     };

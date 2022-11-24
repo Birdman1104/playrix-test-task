@@ -28,8 +28,6 @@ export class ForegroundView extends PixiGrid {
     #build() {
         this.#buildLogo();
         this.#buildPCTA();
-        // const gr = getGr(0xff0000);
-        // this.setChild("logo", gr);
     }
 
     #buildLogo() {

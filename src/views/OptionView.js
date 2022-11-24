@@ -62,8 +62,8 @@ export class OptionView extends PIXI.Container {
     }
 
     hide() {
-        // GSAP
         this.visible = false;
+        this.destroy();
     }
 
     #build() {
@@ -76,9 +76,7 @@ export class OptionView extends PIXI.Container {
 
     #buildBackground() {
         this.#background = makeSprite(getOptionDefaultBackgroundImageConfig());
-        // this.#background.interactive = true;
         this.#background.on("pointerup", () => this.emit(OptionsEvent.OptionClick, this.#type));
-
         this.addChild(this.#background);
         this.calculateBounds();
     }
@@ -104,7 +102,7 @@ export class OptionView extends PIXI.Container {
             position: { centerX },
         } = this.#background;
         this.#okButton = makeSprite(getOKButtonImageConfig());
-        this.#okButton.position.set(centerX, y + height / 2 + 10);
+        this.#okButton.position.set(centerX, y + height / 2 - 15);
         this.#okButton.on("pointerdown", () => this.emit(OptionsEvent.OkButtonClick));
         this.addChild(this.#okButton);
         this.#hideOKButton();
@@ -117,7 +115,6 @@ export class OptionView extends PIXI.Container {
     }
 
     #showOKButton() {
-        console.warn(45);
         this.#okButton.visible = true;
         this.#okButton.alpha = 0;
         this.#okButton.scale = 0;

@@ -38,7 +38,7 @@ export class StairView extends PIXI.Container {
 
     #build() {
         this.#buildStairs();
-        this.#buildHammer();
+        this.#buildHammerIcon();
     }
 
     #buildStairs() {
@@ -46,10 +46,11 @@ export class StairView extends PIXI.Container {
         this.addChild(this.#stairs);
     }
 
-    #buildHammer() {
+    #buildHammerIcon() {
         this.#hammerIcon = makeSprite(getHammerIconImageConfig());
         this.#hammerIcon.visible = false;
         this.#hammerIcon.alpha = 0;
+        this.#hammerIcon.x = -50;
         this.#hammerIcon.on("pointerdown", this.#hideHammer, this);
         this.addChild(this.#hammerIcon);
     }

@@ -65,7 +65,7 @@ export class GameView extends PixiGrid {
             optionView.on(OptionsEvent.OptionClick, (type) => lego.event.emit(GameViewEvent.OptionClick, type));
             optionView.on(OptionsEvent.OkButtonClick, () => lego.event.emit(GameViewEvent.OptionSelected));
             this.setChild(`option_${i + 1}`, optionView);
-            optionView.show(i * 0.05);
+
             return optionView;
         });
     }
@@ -85,7 +85,7 @@ export class GameView extends PixiGrid {
                 this.#stair.showHammer();
                 break;
             case GameState.ChooseStairType:
-                // this.#buildOptions();
+                this.#options.forEach((o, i) => o.show(i * 0.05));
                 break;
             case GameState.ChoiceConfirmation:
                 this.#hideOptions();
@@ -97,7 +97,6 @@ export class GameView extends PixiGrid {
     }
 
     #hideOptions() {
-        // GSAP
         this.#options.forEach((o) => o.hide());
         lego.event.emit(GameViewEvent.OptionHideComplete);
     }

@@ -27,7 +27,7 @@ export class PixiGame extends PIXI.Application {
     init() {
         document.body.appendChild(this.view);
 
-        this.#initStats();
+        // this.#initStats();
         this.#initLego();
         this.#loadAssets();
     }
