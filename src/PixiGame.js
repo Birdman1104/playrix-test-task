@@ -27,8 +27,10 @@ export class PixiGame extends PIXI.Application {
     init() {
         document.body.appendChild(this.view);
 
-        // this.#initStats();
-        this.#initLego();
+        if (process.env.NODE_ENV !== "production") {
+            this.#initStats();
+            // this.#initLego();
+        }
         this.#loadAssets();
     }
 
@@ -87,17 +89,15 @@ export class PixiGame extends PIXI.Application {
     }
 
     #initStats() {
-        if (process.env.NODE_ENV !== "production") {
-            const stats = new PixiStatsPlugin(this);
-            document.body.appendChild(stats.stats.dom);
-            stats.stats.dom.style.transform = "scale(3)";
-            stats.stats.dom.style.transformOrigin = "left top";
-            stats.stats.dom.style.top = "0px";
-            stats.stats.dom.style.left = "0px";
-            stats.stats.dom.style.position = "absolute";
-            this.ticker.add(() => {
-                stats.stats.update();
-            });
-        }
+        const stats = new PixiStatsPlugin(this);
+        document.body.appendChild(stats.stats.dom);
+        stats.stats.dom.style.transform = "scale(3)";
+        stats.stats.dom.style.transformOrigin = "left top";
+        stats.stats.dom.style.top = "0px";
+        stats.stats.dom.style.left = "0px";
+        stats.stats.dom.style.position = "absolute";
+        this.ticker.add(() => {
+            stats.stats.update();
+        });
     }
 }

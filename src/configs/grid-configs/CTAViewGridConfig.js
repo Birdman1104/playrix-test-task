@@ -33,12 +33,12 @@ const getCTAViewGridPortraitConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     return {
         name: "cta_view",
-        debug: { color: 0x000fff },
+        // debug: { color: 0x000fff },
         bounds,
         cells: [
             {
                 name: "popup",
-                bounds: { x: 0.25, y: 0.25, width: 0.5, height: 0.5 },
+                bounds: { x: 0, y: 0.22, width: 1, height: 0.5 },
             },
             {
                 name: "blocker",

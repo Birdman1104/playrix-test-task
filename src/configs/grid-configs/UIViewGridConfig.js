@@ -20,7 +20,7 @@ const getUIViewGridPortraitConfig = () => {
 
     return {
         name: "ui",
-        debug: { color: 0x00f0ff },
+        // debug: { color: 0x00f0ff },
         bounds,
         cells: [],
     };

@@ -2,7 +2,7 @@ import gsap from "gsap";
 import * as PIXI from "pixi.js";
 import { GameState } from "../configs/Constants";
 import { getHandImageConfig } from "../configs/SpriteConfigs";
-import { getDisplayObjectByProperty, makeSprite } from "../Utils";
+import { getDisplayObjectByProperty, lp, makeSprite } from "../Utils";
 
 export class HintView extends PIXI.Container {
     // public gameState
@@ -28,6 +28,8 @@ export class HintView extends PIXI.Container {
 
     hide() {
         gsap.killTweensOf(this.#hand);
+        this.#hand.scale.x = 1;
+        this.#hand.scale.y = 1;
         this.visible = false;
     }
 
@@ -48,15 +50,28 @@ export class HintView extends PIXI.Container {
         const gameView = getDisplayObjectByProperty("name", "GameView");
         const pos = gameView.getHintPosition().map((p) => this.toLocal(p));
         this.#hand.position.copyFrom(pos[0]);
-        this.#animateHandOnOptions(pos);
+        lp(this.#animateHandOnOptionsLandScape, this.#animateHandOnOptionsPortrait).call(this, pos);
     }
 
-    #animateHandOnOptions(pos) {
+    #animateHandOnOptionsLandScape(pos) {
         const timeline = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 0, defaults: { ease: "sine.inOut" } });
 
         pos.forEach(({ x, y }) => {
             timeline.to(this.#hand, { x, y });
             timeline.to(this.#hand, { y: "-=20", yoyo: true, repeat: 1 });
+        });
+
+        timeline.to(this.#hand, { x: pos[0].x, y: pos[0].y });
+        this.visible = true;
+    }
+
+    #animateHandOnOptionsPortrait(pos) {
+        this.#hand.scale.y *= -1;
+        const timeline = gsap.timeline({ repeat: -1, repeatDelay: 0, delay: 0, defaults: { ease: "sine.inOut" } });
+
+        pos.forEach(({ x, y }) => {
+            timeline.to(this.#hand, { x, y });
+            timeline.to(this.#hand, { y: "+=20", yoyo: true, repeat: 1 });
         });
 
         timeline.to(this.#hand, { x: pos[0].x, y: pos[0].y });

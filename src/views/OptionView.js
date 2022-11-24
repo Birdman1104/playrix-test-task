@@ -7,7 +7,7 @@ import {
     getOptionSelectedBackgroundImageConfig,
 } from "../configs/SpriteConfigs";
 import { OptionsEvent } from "../events/ViewEvents";
-import { makeSprite } from "../Utils";
+import { lp, makeSprite } from "../Utils";
 
 export class OptionView extends PIXI.Container {
     #background; // Sprite
@@ -39,7 +39,7 @@ export class OptionView extends PIXI.Container {
     }
 
     getHintPosition() {
-        return this.toGlobal(new PIXI.Point(0, 60));
+        return this.toGlobal(new PIXI.Point(0, lp(60, -60)));
     }
     getBounds() {
         // const size from background image

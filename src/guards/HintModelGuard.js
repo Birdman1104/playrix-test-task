@@ -1,5 +1,5 @@
 import Head from "../models/HeadModel";
 
-export function hintModelGuard() {
+export const hintModelGuard = () => {
     return Head.hint;
-}
+};

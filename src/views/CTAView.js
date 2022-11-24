@@ -5,8 +5,7 @@ import { GameState } from "../configs/Constants";
 import { getCTAViewGridConfig } from "../configs/grid-configs/CTAViewGridConfig";
 import { getWellDoneImageConfig } from "../configs/SpriteConfigs";
 import { GameModelEvents } from "../events/ModelEvents";
-import { getGameBounds, makeSprite } from "../Utils";
-import { getGr } from "./BackgroundView";
+import { getGameBounds, getGr, makeSprite } from "../Utils";
 import { CTAPopup } from "./CTAPopup";
 
 export class CTAView extends PixiGrid {

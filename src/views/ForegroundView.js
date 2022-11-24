@@ -1,9 +1,11 @@
 import { lego } from "@armathai/lego";
 import { PixiGrid } from "@armathai/pixi-grid";
+import gsap from "gsap";
+import { GameState } from "../configs/Constants";
 import { getForegroundViewGridConfig } from "../configs/grid-configs/ForegroundViewGridConfig";
 import { getLogoImageConfig } from "../configs/SpriteConfigs";
 import { GameModelEvents, HeadModelEvents, HintModelEvents } from "../events/ModelEvents";
-import { makeSprite } from "../Utils";
+import { makeSprite, tweenToCell } from "../Utils";
 import { HintView } from "./HintView";
 import { PCTAView } from "./PCTAView";
 
@@ -31,6 +33,7 @@ export class ForegroundView extends PixiGrid {
     }
 
     rebuild() {
+        gsap.killTweensOf(this.#logo);
         super.rebuild(this.getGridConfig());
     }
 
@@ -68,5 +71,9 @@ export class ForegroundView extends PixiGrid {
 
     #onGameModelStateUpdate(state) {
         this.#hint && (this.#hint.gameState = state);
+
+        if (state === GameState.CTA) {
+            tweenToCell(this, this.#logo, "logo_cta");
+        }
     }
 }

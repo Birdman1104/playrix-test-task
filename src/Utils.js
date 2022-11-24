@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import * as PIXI from "pixi.js";
 import pixiApp from "./PixiApp";
 
@@ -32,15 +33,15 @@ export const fitDimension = (dim, minRatio, maxRatio) => {
     return dim;
 };
 
-export function isSquareLikeScreen() {
+export const isSquareLikeScreen = () => {
     const { width, height } = getGameBounds();
-    return Math.min(width, height) / Math.max(width, height) > 0.7;
-}
+    return Math.min(width, height) / Math.max(width, height) > 0.68;
+};
 
-export function isNarrowScreen() {
+export const isNarrowScreen = () => {
     const { width, height } = getGameBounds();
     return Math.min(width, height) / Math.max(width, height) < 0.5;
-}
+};
 
 export const makeSprite = (config) => {
     const {
@@ -121,4 +122,21 @@ export const loopRunnable = (delay, runnable, context, ...args) => {
 
 export const postRunnable = (runnable, context = null, ...args) => {
     return delayRunnable(pixiApp.pixiGame.ticker.deltaMS / 1000, runnable, context, ...args);
+};
+
+export const tweenToCell = (grid, child, cellName, duration = 0.2, ease = "sine.inOut") => {
+    const { x: formScaleX, y: formScaleY } = child.scale;
+    const { x: formPositionX, y: formPositionY } = child.position;
+    grid.rebuildChild(child, cellName);
+    gsap.from(child, { x: formPositionX, y: formPositionY, duration, ease, yoyo: true });
+    gsap.from(child.scale, { x: formScaleX, y: formScaleY, duration, ease, yoyo: true });
+};
+
+export const getGr = (color = 0x919191, alpha = 1) => {
+    const gr = new PIXI.Graphics();
+    gr.interactive = true;
+    gr.beginFill(color, alpha);
+    gr.drawRect(0, 0, 10, 10);
+    gr.endFill();
+    return gr;
 };

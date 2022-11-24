@@ -1,5 +1,5 @@
 import Head from "../../models/HeadModel";
 
-export function startHintVisibilityTimerCommand() {
+export const startHintVisibilityTimerCommand = () => {
     Head.hint.startVisibilityTimer();
-}
+};
