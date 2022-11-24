@@ -28,7 +28,7 @@ export class PixiGame extends PIXI.Application {
         document.body.appendChild(this.view);
 
         if (process.env.NODE_ENV !== "production") {
-            this.#initStats();
+            // this.#initStats();
             // this.#initLego();
         }
         this.#loadAssets();

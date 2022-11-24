@@ -1,5 +1,7 @@
 import { PixiGrid } from "@armathai/pixi-grid";
 import { getUIViewGridConfig } from "../configs/grid-configs/UIViewGridConfig";
+import { getDecorImageConfig } from "../configs/SpriteConfigs";
+import { makeSprite } from "../Utils";
 
 export class UIView extends PixiGrid {
     constructor() {
@@ -21,7 +23,8 @@ export class UIView extends PixiGrid {
     }
 
     #build() {
-        // const gr = getGr(0x789abc);
-        // this.setChild("p_cta", gr);
+        // { name: "plant_2", x: 490, y: -80, scale: 0.9 },
+        const plant = makeSprite(getDecorImageConfig("plant_1"));
+        this.setChild("plant", plant);
     }
 }

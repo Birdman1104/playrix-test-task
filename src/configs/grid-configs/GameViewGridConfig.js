@@ -8,7 +8,7 @@ export const getGameViewGridConfig = () => {
 const getGameViewGridLandscapeConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     let stairCellBounds = { x: 0.71, y: 0.1, width: 0.38, height: 0.8 };
-    let stairCellScale;
+    let stairCellScale = CellScale.showAll;
     if (isSquareLikeScreen()) {
         stairCellScale = CellScale.envelop;
         stairCellBounds = { x: 0.71, y: 0.25, width: 0.38, height: 0.55 };
@@ -57,7 +57,7 @@ const getGameViewGridPortraitConfig = () => {
                 name: "stair",
                 align: CellAlign.rightBottom,
                 scale: CellScale.envelop,
-                bounds: { x: 0.55, y: 0.28, width: 0.7, height: 0.41 },
+                bounds: { x: 0.55, y: 0.37, width: 0.7, height: 0.41 },
             },
             {
                 name: "option_1",

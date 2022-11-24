@@ -1,3 +1,4 @@
+import { CellScale } from "@armathai/pixi-grid";
 import { lp } from "../../Utils";
 
 export const getMainViewGridConfig = () => {
@@ -13,6 +14,7 @@ const getMainViewGridLandscapeConfig = () => {
         cells: [
             {
                 name: "background",
+                scale: CellScale.envelop,
                 bounds: { x: 0, y: 0, width: 1, height: 1 },
             },
             {
@@ -32,6 +34,7 @@ const getMainViewGridPortraitConfig = () => {
         cells: [
             {
                 name: "background",
+                scale: CellScale.envelop,
                 bounds: { x: 0, y: 0, width: 1, height: 1 },
             },
             {
