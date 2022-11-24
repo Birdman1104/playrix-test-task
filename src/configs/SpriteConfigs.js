@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 
 export const getRoomImageConfig = () => ({
-    texture: "room.png",
+    texture: "room_clean.jpg",
 });
 
 export const getStairImageConfig = (type) => ({
@@ -36,4 +36,9 @@ export const getLogoImageConfig = () => ({
 
 export const getPCTAImageConfig = () => ({
     texture: `cta/cta_btn.png`,
+});
+
+export const getWellDoneImageConfig = () => ({
+    texture: `cta/well_done.png`,
+    anchor: new PIXI.Point(0.5, 1),
 });

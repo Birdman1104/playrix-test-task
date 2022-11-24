@@ -21,6 +21,10 @@ const getCTAViewGridLandscapeConfig = () => {
                 scale: CellScale.fill,
                 bounds: { x: 0, y: 0, width: 1, height: 1 },
             },
+            {
+                name: "well_done",
+                bounds: { x: 0, y: 0, width: 1, height: 1 },
+            },
         ],
     };
 };
@@ -39,6 +43,10 @@ const getCTAViewGridPortraitConfig = () => {
             {
                 name: "blocker",
                 scale: CellScale.fill,
+                bounds: { x: 0, y: 0, width: 1, height: 1 },
+            },
+            {
+                name: "well_done",
                 bounds: { x: 0, y: 0, width: 1, height: 1 },
             },
         ],

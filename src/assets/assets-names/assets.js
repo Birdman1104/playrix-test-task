@@ -1,1 +1,1 @@
-export const assets = [{ assetName: "room.png", url: "assets/uncompressed/room.png" }];
+export const assets = [{ assetName: "room_clean.jpg", url: "assets/uncompressed/room_clean.jpg" }];
