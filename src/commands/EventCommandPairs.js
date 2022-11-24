@@ -2,12 +2,12 @@ import { lego } from "@armathai/lego";
 import { MainGameEvents } from "../events/MainEvents";
 import { GameModelEvents } from "../events/ModelEvents";
 import { GameViewEvent } from "../events/ViewEvents";
-import { gameStateUpdateCommand } from "./GameStateUpdateCommand";
-import { hammerClickCommand } from "./HammerClickCommand";
+import { gameStateUpdateCommand } from "./game/GameStateUpdateCommand";
+import { hammerClickCommand } from "./game/HammerClickCommand";
+import { optionClickCommand } from "./game/OptionClickCommand";
+import { optionHideCompleteCommand } from "./game/OptionHideCompleteCommand";
+import { optionSelectedCommand } from "./game/OptionSelectedCommand";
 import { onMainViewReadyCommand } from "./MainViewReadyCommand";
-import { optionClickCommand } from "./OptionClickCommand";
-import { optionHideCompleteCommand } from "./OptionHideCompleteCommand";
-import { optionSelectedCommand } from "./OptionSelectedCommand";
 import { onResizeCommand } from "./ResizeCommand";
 
 export const mapCommands = () => {

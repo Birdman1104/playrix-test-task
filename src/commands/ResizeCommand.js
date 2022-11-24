@@ -1,8 +1,8 @@
 import { lego } from "@armathai/lego";
 import { hintModelGuard } from "../guards/HintModelGuard";
-import { hideHintCommand } from "./HideHintCommand";
-import { startHintVisibilityTimerCommand } from "./StartHintVisibilityTimerCommand";
-import { stopHintVisibilityTimerCommand } from "./StopHintVisibilityTimerCommand";
+import { hideHintCommand } from "./hint/HideHintCommand";
+import { startHintVisibilityTimerCommand } from "./hint/StartHintVisibilityTimerCommand";
+import { stopHintVisibilityTimerCommand } from "./hint/StopHintVisibilityTimerCommand";
 
 export const onResizeCommand = () => {
     lego.command

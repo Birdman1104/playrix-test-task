@@ -1,5 +1,5 @@
-import { GameState } from "../configs/Constants";
-import Head from "../models/HeadModel";
+import { GameState } from "../../configs/Constants";
+import Head from "../../models/HeadModel";
 
 export const gameStateUpdateCommand = (state) => {
     switch (state) {

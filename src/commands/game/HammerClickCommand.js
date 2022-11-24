@@ -1,5 +1,5 @@
 import { lego } from "@armathai/lego";
-import { GameState } from "../configs/Constants";
+import { GameState } from "../../configs/Constants";
 import { setGameStateCommand } from "./SetGameStateCommand";
 
 export const hammerClickCommand = () => {
