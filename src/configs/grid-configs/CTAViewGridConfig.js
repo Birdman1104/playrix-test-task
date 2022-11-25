@@ -38,7 +38,7 @@ const getCTAViewGridPortraitConfig = () => {
         cells: [
             {
                 name: "popup",
-                bounds: { x: 0, y: 0.22, width: 1, height: 0.5 },
+                bounds: { x: 0.1, y: 0.22, width: 0.8, height: 0.5 },
             },
             {
                 name: "blocker",
@@ -47,7 +47,7 @@ const getCTAViewGridPortraitConfig = () => {
             },
             {
                 name: "well_done",
-                bounds: { x: 0, y: 0, width: 1, height: 1 },
+                bounds: { x: 0.1, y: 0, width: 0.8, height: 1 },
             },
         ],
     };

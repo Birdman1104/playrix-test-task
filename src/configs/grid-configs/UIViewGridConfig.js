@@ -24,12 +24,12 @@ const getUIViewGridPortraitConfig = () => {
 
     return {
         name: "ui",
-        debug: { color: 0x00f0ff },
+        // debug: { color: 0x00f0ff },
         bounds,
         cells: [
             {
                 name: "plant",
-                bounds: { x: 0.8, y: 0.6, width: 0.2, height: 0.2 },
+                bounds: { x: 0.8, y: 0.825, width: 0.2, height: 0.2 },
             },
         ],
     };

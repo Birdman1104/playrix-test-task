@@ -27,6 +27,7 @@ export class MainView extends PixiGrid {
     }
 
     rebuild() {
+        this.#bgView.rebuild();
         super.rebuild(this.getGridConfig());
     }
 
