@@ -1,5 +1,4 @@
 export const GameModelEvents = {
-    TutorialUpdate: "GameModelTutorialUpdate",
     OptionsUpdate: "GameModelOptionsUpdate",
     StateUpdate: "GameModelStateUpdate",
     StairTypeUpdate: "GameModelStairTypeUpdate",

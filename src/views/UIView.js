@@ -23,7 +23,6 @@ export class UIView extends PixiGrid {
     }
 
     #build() {
-        // { name: "plant_2", x: 490, y: -80, scale: 0.9 },
         const plant = makeSprite(getDecorImageConfig("plant_1"));
         this.setChild("plant", plant);
     }

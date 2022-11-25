@@ -41,12 +41,15 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            gameName: "Pixi JS TS Template",
+            gameName: "Playrix test task",
             template: "./index.html",
             filename: "index.html",
         }),
         new CopyWebpackPlugin({
-            patterns: [{ from: "./src/assets", to: "assets" }],
+            patterns: [
+                { from: "./src/assets/atlases", to: "assets/atlases" },
+                { from: "./src/assets/uncompressed", to: "assets/uncompressed" },
+            ],
         }),
     ],
 };

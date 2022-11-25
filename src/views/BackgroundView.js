@@ -27,10 +27,6 @@ export class BackgroundView extends PIXI.Container {
         return new PIXI.Rectangle(-w / 2, -h / 2, w, h);
     }
 
-    // getGridConfig() {
-    //     return getBackgroundGridConfig();
-    // }
-
     rebuild() {
         this.#decors.length === 0 ? this.#buildDecors() : this.#repositionDecors();
     }

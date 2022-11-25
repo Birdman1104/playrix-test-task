@@ -30,8 +30,7 @@ class HeadModel extends ObservableModel {
     }
 
     init() {
-        // this._gameModel = null;
-        // this._hint = null;
+        //
     }
 
     destroyHint() {

@@ -2,25 +2,15 @@ import { GameState } from "../configs/Constants";
 import { StairOptions, StairType } from "../configs/StairsOptionsConfig";
 import { ObservableModel } from "./ObservableModel";
 import { StairOptionModel } from "./StairOptionModel";
-import { TutorialModel } from "./TutorialModel";
 
 export class GameModel extends ObservableModel {
-    _tutorial; // TutorialModel
-    _state;
+    _state; // GameState
     _stairType; // StairType
     _options; // StairOptionModel[]
 
     constructor() {
         super("GameModel");
         this.makeObservable();
-    }
-
-    get tutorial() {
-        return this._tutorial;
-    }
-
-    set tutorial(value) {
-        this._tutorial = value;
     }
 
     get options() {
@@ -62,15 +52,5 @@ export class GameModel extends ObservableModel {
 
     initOptions() {
         this._options = StairOptions.map(({ name }) => new StairOptionModel(name));
-    }
-
-    initTutorial() {
-        this._tutorial = new TutorialModel();
-        this._tutorial.init();
-    }
-
-    destroyTutorial() {
-        this._tutorial.destroy();
-        this._tutorial = null;
     }
 }

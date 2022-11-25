@@ -53,7 +53,6 @@ function isImage(filePath) {
     return /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(filePath);
 }
 
-// TODO rename
 async function generateAtlas(data, name) {
     const assets = await Promise.all(
         data.map(async (key) => {
@@ -120,20 +119,15 @@ async function generateAtlases() {
             atlasNames.push(folder);
             await generateAtlas(imageFiles, folder);
         }
-        // TODO cleanup
         const data = `export const atlases = ${JSON.stringify(atlasNames)}`;
         const file = join(assetsPath, "assets-names/atlases.js");
-        // const imgData = `export const images = ${JSON.stringify(imageFiles)}`;
-        // const imgFile = join(assetsPath, "assets-names/images.js");
         await fs.writeFile(file, data);
-        // await fs.writeFile(imgFile, imgData);
         await runPrettierOn(file);
-        // await runPrettierOn(imgFile);
     } catch (e) {
         console.log(e.message);
     }
 }
-async function generateUncompressedSprites() {
+async function generateUncompressedImages() {
     const { path } = paths.uncompressed;
     try {
         const files = await getFolderContent(path, true);
@@ -164,7 +158,7 @@ async function start() {
     console.log("generating atlases");
     await generateAtlases();
     console.log("generating uncompressed sprites");
-    await generateUncompressedSprites();
+    await generateUncompressedImages();
     console.log("asset generation complete");
     console.log("running the game");
 }
