@@ -61,9 +61,14 @@ export class BackgroundView extends PIXI.Container {
 
     #repositionDecors() {
         this.#decors.forEach((item) => {
-            const { x, y } = decorsConfig().find((c) => c.name === item.spriteName);
+            const { x, y, scale = 1 } = decorsConfig().find((c) => c.name === item.spriteName);
             item.x = x;
             item.y = y;
+            if (Number.isInteger(scale)) {
+                sprite.scale.set(scale);
+            } else if (scale.x || scale.y) {
+                sprite.scale.set(scale.x, scale.y);
+            }
         });
     }
 }
