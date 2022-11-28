@@ -2,8 +2,8 @@
   "frames": {
     "stairs/stair_brown.png": {
       "frame": {
-        "x": 1,
-        "y": 1,
+        "x": 3,
+        "y": 3,
         "w": 532,
         "h": 614
       },
@@ -26,8 +26,8 @@
     },
     "stairs/stair_black.png": {
       "frame": {
-        "x": 1,
-        "y": 617,
+        "x": 3,
+        "y": 623,
         "w": 522,
         "h": 614
       },
@@ -50,8 +50,8 @@
     },
     "cta/cta_popup.png": {
       "frame": {
-        "x": 1,
-        "y": 1233,
+        "x": 3,
+        "y": 1243,
         "w": 610,
         "h": 394
       },
@@ -72,59 +72,35 @@
         "y": 0.5
       }
     },
-    "ui/hand.png": {
+    "decors/globe.png": {
       "frame": {
-        "x": 1,
-        "y": 1845,
-        "w": 120,
-        "h": 196
+        "x": 3,
+        "y": 1859,
+        "w": 147,
+        "h": 180
       },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
-        "x": 1,
-        "y": 1,
-        "w": 120,
-        "h": 196
-      },
-      "sourceSize": {
-        "w": 122,
-        "h": 198
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "decors/table.png": {
-      "frame": {
-        "x": 123,
-        "y": 1845,
-        "w": 240,
-        "h": 182
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
+        "x": 2,
         "y": 0,
-        "w": 240,
-        "h": 182
+        "w": 147,
+        "h": 180
       },
       "sourceSize": {
-        "w": 240,
-        "h": 182
+        "w": 150,
+        "h": 180
       },
       "pivot": {
         "x": 0.5,
         "y": 0.5
       }
     },
-    "decors/globe.png": {
+    "decors/book_stand.png": {
       "frame": {
-        "x": 365,
-        "y": 1845,
-        "w": 120,
+        "x": 156,
+        "y": 1859,
+        "w": 140,
         "h": 180
       },
       "rotated": false,
@@ -132,12 +108,36 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 120,
+        "w": 140,
         "h": 180
       },
       "sourceSize": {
-        "w": 120,
+        "w": 140,
         "h": 180
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "decors/plant_2.png": {
+      "frame": {
+        "x": 302,
+        "y": 1859,
+        "w": 115,
+        "h": 150
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 0,
+        "w": 115,
+        "h": 150
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 150
       },
       "pivot": {
         "x": 0.5,
@@ -146,8 +146,8 @@
     },
     "stairs/stair_green.png": {
       "frame": {
-        "x": 397,
-        "y": 1233,
+        "x": 403,
+        "y": 1243,
         "w": 522,
         "h": 608
       },
@@ -170,8 +170,8 @@
     },
     "cta/well_done.png": {
       "frame": {
-        "x": 525,
-        "y": 617,
+        "x": 531,
+        "y": 623,
         "w": 575,
         "h": 131
       },
@@ -192,34 +192,10 @@
         "y": 0.5
       }
     },
-    "decors/book_stand.png": {
-      "frame": {
-        "x": 487,
-        "y": 1843,
-        "w": 100,
-        "h": 165
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 100,
-        "h": 165
-      },
-      "sourceSize": {
-        "w": 100,
-        "h": 165
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
     "decors/plant_1.png": {
       "frame": {
-        "x": 589,
-        "y": 1843,
+        "x": 423,
+        "y": 1857,
         "w": 148,
         "h": 244
       },
@@ -242,8 +218,8 @@
     },
     "stairs-icons/ok_btn.png": {
       "frame": {
-        "x": 835,
-        "y": 1843,
+        "x": 673,
+        "y": 1857,
         "w": 141,
         "h": 78
       },
@@ -258,126 +234,6 @@
       "sourceSize": {
         "w": 141,
         "h": 78
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "stairs/stair_default.png": {
-      "frame": {
-        "x": 535,
-        "y": 1,
-        "w": 546,
-        "h": 496
-      },
-      "rotated": true,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 546,
-        "h": 496
-      },
-      "sourceSize": {
-        "w": 546,
-        "h": 496
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "decors/plant_2.png": {
-      "frame": {
-        "x": 915,
-        "y": 1843,
-        "w": 103,
-        "h": 130
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 103,
-        "h": 130
-      },
-      "sourceSize": {
-        "w": 103,
-        "h": 130
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "decors/couch.png": {
-      "frame": {
-        "x": 658,
-        "y": 549,
-        "w": 374,
-        "h": 306
-      },
-      "rotated": true,
-      "trimmed": true,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 374,
-        "h": 306
-      },
-      "sourceSize": {
-        "w": 375,
-        "h": 307
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "decors/austin.png": {
-      "frame": {
-        "x": 658,
-        "y": 925,
-        "w": 86,
-        "h": 306
-      },
-      "rotated": false,
-      "trimmed": true,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 86,
-        "h": 306
-      },
-      "sourceSize": {
-        "w": 87,
-        "h": 306
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "ui/logo.png": {
-      "frame": {
-        "x": 746,
-        "y": 925,
-        "w": 298,
-        "h": 97
-      },
-      "rotated": true,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 298,
-        "h": 97
-      },
-      "sourceSize": {
-        "w": 298,
-        "h": 97
       },
       "pivot": {
         "x": 0.5,
@@ -386,8 +242,8 @@
     },
     "stairs-icons/icon_hammer.png": {
       "frame": {
-        "x": 845,
-        "y": 925,
+        "x": 757,
+        "y": 1857,
         "w": 108,
         "h": 127
       },
@@ -410,8 +266,8 @@
     },
     "cta/cta_btn.png": {
       "frame": {
-        "x": 845,
-        "y": 1054,
+        "x": 871,
+        "y": 1857,
         "w": 364,
         "h": 124
       },
@@ -432,10 +288,106 @@
         "y": 0.5
       }
     },
+    "ui/hand.png": {
+      "frame": {
+        "x": 1241,
+        "y": 1857,
+        "w": 120,
+        "h": 196
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 120,
+        "h": 196
+      },
+      "sourceSize": {
+        "w": 122,
+        "h": 198
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "stairs/stair_default.png": {
+      "frame": {
+        "x": 1443,
+        "y": 3,
+        "w": 546,
+        "h": 496
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 546,
+        "h": 496
+      },
+      "sourceSize": {
+        "w": 546,
+        "h": 496
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "ui/logo.png": {
+      "frame": {
+        "x": 541,
+        "y": 505,
+        "w": 298,
+        "h": 97
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 298,
+        "h": 97
+      },
+      "sourceSize": {
+        "w": 298,
+        "h": 97
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "decors/couch.png": {
+      "frame": {
+        "x": 668,
+        "y": 3,
+        "w": 374,
+        "h": 306
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 374,
+        "h": 306
+      },
+      "sourceSize": {
+        "w": 375,
+        "h": 307
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "stairs-icons/choice_default.png": {
       "frame": {
-        "x": 955,
-        "y": 925,
+        "x": 541,
+        "y": 3,
         "w": 120,
         "h": 120
       },
@@ -458,8 +410,8 @@
     },
     "stairs-icons/choice_selected.png": {
       "frame": {
-        "x": 1077,
-        "y": 925,
+        "x": 541,
+        "y": 129,
         "w": 119,
         "h": 119
       },
@@ -482,8 +434,8 @@
     },
     "stairs-icons/stair_green_icon.png": {
       "frame": {
-        "x": 1198,
-        "y": 925,
+        "x": 541,
+        "y": 383,
         "w": 90,
         "h": 82
       },
@@ -506,8 +458,8 @@
     },
     "stairs-icons/stair_brown_icon.png": {
       "frame": {
-        "x": 966,
-        "y": 549,
+        "x": 629,
+        "y": 383,
         "w": 87,
         "h": 81
       },
@@ -528,14 +480,38 @@
         "y": 0.5
       }
     },
+    "decors/austin.png": {
+      "frame": {
+        "x": 716,
+        "y": 383,
+        "w": 86,
+        "h": 306
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 86,
+        "h": 306
+      },
+      "sourceSize": {
+        "w": 87,
+        "h": 306
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "stairs-icons/stair_black_icon.png": {
       "frame": {
-        "x": 966,
-        "y": 638,
+        "x": 541,
+        "y": 254,
         "w": 85,
         "h": 80
       },
-      "rotated": true,
+      "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 4,
@@ -551,6 +527,30 @@
         "x": 0.5,
         "y": 0.5
       }
+    },
+    "decors/table.png": {
+      "frame": {
+        "x": 980,
+        "y": 3,
+        "w": 290,
+        "h": 190
+      },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 290,
+        "h": 190
+      },
+      "sourceSize": {
+        "w": 290,
+        "h": 190
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
     }
   },
   "meta": {
@@ -559,7 +559,7 @@
     "image": "main.png",
     "format": "RGBA8888",
     "size": {
-      "w": 1281,
+      "w": 1992,
       "h": 2042
     },
     "scale": 1

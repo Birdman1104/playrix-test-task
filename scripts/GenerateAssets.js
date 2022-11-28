@@ -27,7 +27,7 @@ let options = {
     height: 2048,
     fixedSize: false,
     powerOfTwo: false,
-    padding: 1,
+    padding: 3,
     extrude: 0,
     allowRotation: true,
     detectIdentical: true,
